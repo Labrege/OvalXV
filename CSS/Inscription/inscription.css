@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,600;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Muli', sans-serif;
+    color: #10222e;
+    font-size: 14px;
+}
+
+body{
+    background-color: #10222e;
+    overflow: hidden;
+}
+
+img{
+    position: absolute;
+    top: -1%;
+    left: 0;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.formulaire{
+    height: 80%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulaire h1{
+    color: white;
+    background-color: salmon;
+    clip-path: polygon(0 0, 100% 10%, 100% 85%, 5% 100%);
+    font-size: 2.5rem ;
+    margin: 15px;
+    margin-bottom: 5%;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+form input{
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 80px;
+}
+
+.boutton{
+    color: white;
+    width: 40%;
+    border: 1px solid white;
+    background-color: #10222e;
+}
+
+.boutton:hover{
+    transition: ease-in 400ms;
+    color: #10222e;
+    background-color: white;
+    cursor: pointer;
+}
+
+.options{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.options a{
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.inscription{
+    text-align: center;
+    color: tomato;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%,-50%);
+}
+
+#bouton-inscription{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 30px;
+    color: #FFFAE5;
+    border: 1px solid #FFFAE5;
+
+    background-color: #10222e;
+}
+
+#bouton-inscription:hover{
+    background-color: #FFFAE5;
+    color: #10222e;
+    transition: ease-in 0.5s;
+    cursor: pointer;
+}
+
+.error_message{
+    margin-top: 10px;
+    color: tomato;
+}
+@media screen and (max-width: 768px){
+    *{
+        font-size: 8px;
+    }
+    
+    .formulaire{
+        width: 80%;
+    }
+
+    .formulaire h1{
+        font-size: 2rem;
+    }
+
+    .inscription{
+        top: 10%;
+    }
+
+}

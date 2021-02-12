@@ -1,0 +1,126 @@
+#offres{
+    background-color:  #FFFAE5;
+    clip-path: polygon(0 15%, 100% 0%, 100% 90%, 0% 100%);
+    margin-top: 50px;
+    padding-top: 120px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titre-offres{
+    margin-bottom: 40px;
+    background-color: salmon ;
+    color: #FFFAE5;
+    text-transform: uppercase;
+    clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
+}
+
+.titre-offres h1{
+    padding: 10px;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.offre-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+}
+
+.offre-boite{
+    padding: 2%;
+    width: 30%;
+}
+
+.offre-boite:nth-child(1){
+    border-right: #10222e 7px dotted;
+}
+
+.offre-boite h2{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.offres-prix{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.offres-prix h3{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-top: 10px ;
+    border: #10222e 2px solid;
+    padding: 5px; 
+    border-radius: 30px;
+    color: #FFFAE5;
+    background-color: #10222e;
+}
+
+.lien-offres{
+    margin-top: 50px;
+    margin-bottom: 110px;
+}
+
+.lien-offres h1 a{
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #10222e;
+    padding: 5px;
+    border: #10222e 2px solid;
+    border-radius: 30px;
+}
+
+.lien-offres h1 a:hover{
+    background-color: #10222e;
+    color: #FFFAE5;
+}
+
+@media screen and (max-width: 768px){
+    #offres{
+    clip-path: polygon(0 4%, 100% 0%, 100% 96%, 0% 100%);
+
+    }
+
+    .offre-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .offre-boite{
+        width: 60%;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    .offre-boite:nth-child(1){
+        border-right: #10222e 0px dotted;
+        border-bottom: #10222e 7px dotted;
+    
+    }
+    
+    .offre-boite:nth-child(2){
+        border-right: #10222e 0px dotted;
+
+        border-bottom: #10222e 7px dotted;
+
+    
+    }
+}
+
+
+
+
+
+
+

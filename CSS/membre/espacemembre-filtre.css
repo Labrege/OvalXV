@@ -1,0 +1,63 @@
+/*Fitres*/
+#filtres{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#filtres ul{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#filtres ul li{
+    list-style: none;
+    background-color: #FFFAE5;
+    color: #10222e;
+    padding: 6px;
+    margin: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#filtres ul li.active{
+    background-color: #10222e;
+    color: #FFFAE5;
+}
+
+/*Videos*/
+
+.product{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.product .itemBox{
+    width: 350px;
+    margin: 1%;
+}
+
+.product .itemBox{
+    cursor: pointer;
+}
+
+.product .itemBox img{
+    width: 90%;
+}
+/*Partie Admin*/
+
+@media screen and (max-width: 768px){
+    .product .itemBox{
+        max-width: 90%;
+    }
+}
+
+

@@ -1,0 +1,140 @@
+/*****SECTION: BOITES reseauxRMATION + ICONES*****/
+#reseaux-fond{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.titre-reseaux{
+    background-color: salmon ;
+    color: #FFFAE5;
+    text-transform: uppercase;
+    clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
+    margin-bottom: 50px;
+}
+
+.titre-reseaux h1{
+    padding: 10px;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+
+.reseaux-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+}
+
+
+.reseaux-boite1{
+    flex: 1;
+}
+
+.reseaux-boite1 a{
+    text-decoration: none;
+    color: #FFFAE5;
+}
+
+.reseaux-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 25%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.reseaux-info h2{
+    margin-left: 45px;
+}
+
+.reseaux-boite2{
+    background-color:#10222e;
+    flex: 1;
+}
+
+.reseaux-boite2 h1{
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    color: #FFFAE5;
+    
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 70%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.bouton-valider{
+    width: 40%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #10222e;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.bouton-valider:hover{
+    transition: ease-out 1s;
+    background-color: #FFFAE5;
+    color:#10222e;
+    border: #10222e solid 2px;
+}
+
+footer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #FFFAE5;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px){
+    
+    .titre{
+        margin-top: 10px;
+    }
+    .reseaux-container{
+        flex-direction: column;
+    }
+
+    .reseaux-boite1{
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .reseaux-boite2{
+        width: 100%;
+    }
+
+    .reseaux-info{
+        margin-left: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+    }
+
+}

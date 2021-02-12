@@ -1,0 +1,92 @@
+/*SHOWCASE*/
+
+.showcase {
+    object-fit: cover;
+    width: 100%;
+    background-color: white;
+    clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+    -webkit-clip-path:polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+    -moz-clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+    -ms-clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+    -o-clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+    background-color: black;    
+
+}
+
+.showcase img{
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+    opacity: 0.7;
+}
+
+.slider-wrapper{
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    width: 100%;
+    
+}
+
+.slider{
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow: hidden;
+    width: 100%;
+    
+}
+
+.slider div{
+    text-align: center;
+    height: 50px;
+    margin-bottom: 50px;
+    overflow-y: hidden;
+   
+}
+
+.slider-text1{
+    color: #FFFAE5;
+    animation: slide 5s linear infinite;
+    text-shadow: 1px 1px 2px black;
+    font-size: 2.5em;
+}
+
+.slider-text2{
+    color: #FFFAE5;
+    text-shadow: 1px 1px 2px black;
+    font-size: 2.5em;
+}
+
+
+
+@keyframes slide{
+    0% {margin-top: -200px;}
+    5% {margin-top: -100px;}
+    50% {margin-top: -100px;}
+    55% {margin-top: 0px;}
+    100% {margin-top: 0px;}
+}
+@media screen and (max-width: 768px)
+{
+    .slider-text1, .slider-text2{
+        padding-top: 15px;
+        font-size: 2em;
+    }
+
+}
+@media screen and (max-width: 425px){
+    .slider-text1, .slider-text2{
+        padding-top: 10px;
+        font-size: 1em;
+    }
+}
+

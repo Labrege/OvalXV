@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,600;1,900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Muli', sans-serif;
+	font-size: 14px;
+
+}
+body{
+	background-color: #10222e;
+	overflow-x: hidden;	
+}
+
+#sommaire ul{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#sommaire ul li{
+	list-style: none;
+	margin: 1.5%;
+	padding: 1.5%;
+}
+
+#sommaire ul li img{
+	margin: 0%;
+	padding: 0%;
+	height: 9vh;
+}
+
+#sommaire ul li a{
+	font-size: 1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #FFFAE5;
+	padding: 6px;
+}
+
+#sommaire ul li a:hover{
+	background-color: #FFFAE5;
+	color: #10222e;
+}
+
+@media screen and (max-width: 768px)
+{
+	*{
+		font-size: 6.5px;
+	}
+
+	#sommaire ul li img{
+		height: 4vh;
+	}
+
+
+}
