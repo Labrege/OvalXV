@@ -36,15 +36,15 @@ header{
 }
 
 /*rubrique sections*/
-
 .page{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.page h2{
+.h2{
     margin-top: 10px;
+    font-size: 1rem;
     color: #FFFAE5;
     text-transform: lowercase;
 }

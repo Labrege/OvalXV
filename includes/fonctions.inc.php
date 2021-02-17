@@ -129,6 +129,7 @@ function loginUser($conn, $username, $pwd){
         $_SESSION["useruid"] = $uidExists["userUid"];
         $_SESSION["useremail"] = $uidExists["userEmail"];
         $_SESSION["username"] = $uidExists["userName"];
+        $_SESSION["usersurname"] = $uidExists["userSurname"];
         $_SESSION["plan"] = $uidExists["plan"];
         header("location: ../espace-membre/espace_membre.php");
         exit();

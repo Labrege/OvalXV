@@ -4,7 +4,7 @@ require_once '../espace-membre/espace_membre_header.php';
 
 ?>
 
-<h2> Mes informations </h2>
+<h2> Mon abonnement </h2>
 
 
 <h4> Gestion de mon abonnement </h4>

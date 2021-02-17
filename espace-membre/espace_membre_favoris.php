@@ -6,7 +6,6 @@ $uid = $_SESSION["useruid"];
 //Requete SQL
 $sqlFavoris = $conn->query("SELECT * FROM favoris WHERE idCreateur = '$uid'");
 
-
 //Affichage des données
 while ($donneesFavoris = $sqlFavoris->fetch_assoc()){
     $videoId = $donneesFavoris["idVideo"];
