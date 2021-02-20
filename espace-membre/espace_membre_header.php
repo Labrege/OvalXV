@@ -1,8 +1,7 @@
 <?php
 
 session_start();
-require_once '../includes/dbh.inc.php';
-
+include 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
 
 ?>
 <!DOCTYPE html>
@@ -18,14 +17,43 @@ require_once '../includes/dbh.inc.php';
     <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-favoris.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-entrainement.css?v=<?php echo time(); ?>">
 
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- JavaScript file -->
 
+    <!-- Bootstrap -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.btnFavorites').click(function(){
+                id = $(this).data('id');
+                videoid = $('#video' + id).val();
+                $.ajax({
+                    url: '../espace-membre/favoris/ajoutFavorisProcess.php',
+                    method: 'post',
+                    dataType: 'json',
+                    data:{
+                        videoid: videoid,
+                        action: 'add'
+                    },
+                    success: function(data){
+                            $('#message-container').html(data);
+                        }
+                }).fail(function(xhr, textStatus, errorThrown){
+                    alert(xhr.responseText);
+                });
+            });
+        });
+    </script>
     <title> OvalXV | Espace Membre</title>
 
 </head>
 <body>
     <header>
+    
         <div class="header-container">
+            
             <div class="logo-container">
                 <img src="../Images/logoheader.png" alt="">
             </div>
@@ -41,8 +69,7 @@ require_once '../includes/dbh.inc.php';
                 </div>              
             </div>
 
-        </div>
-        
+        </div>        
         <div class="user-container">
             <!-- <img src="../Images/user.png" alt="">
             <span class="statut-membre"> </span>

@@ -1,7 +1,6 @@
 <?php
 
-require_once '../espace-membre/espace_membre_header.php';
-require_once 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
+include '../espace-membre/espace_membre_header.php';
 
 //verifie la bonne connexion au compte
 if (isset($_SESSION["useruid"])){
@@ -10,10 +9,14 @@ if (isset($_SESSION["useruid"])){
 $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
 ?>
 
+<div id="message-container" style="color: red; text-align: center;">
+</div>
+
+
+<!-- Filtres -->
 <div id="filtres">
     <ul>
         <li class="list" data-filter="all"> All </li>
-
         <div class="dropdown">
             <button class="dropbtn"> Skills ▼ </button>
             <div class="dropdown-content">
@@ -26,48 +29,26 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
             </div>
     </ul>
 </div>
-    
+
+<div class="form-message">
+
+</div>
+
 <div class="product">
+
 <?php 
     // On affiche chaque entrée une à une
     while ($donnees = $reponse->fetch_assoc()){
 ?>
+    <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
+    <!-- Ajout du bouton favoris -->
+    <button class="btnFavorites" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> + </button>
+
     <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
     
-    
-    <?php 
-    // Si le statut le statut membre est + que prémium
-    if ($_SESSION["plan"]!=0){
-        $idVideo = $donnees["id"];
-        $sqlCheck = "SELECT * FROM favoris WHERE idVideo = '$idVideo'";
-
-        //verification dans la BD
-        $rs = mysqli_query($conn,$sqlCheck);
-        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-    
-        //Si video existe deja dans favoris
-        if($data[0] > 1){
-        ?>
-        <!-- Boutton favoris // ../espace-membre/favoris/effacerFavorisDepuisVideosProcess.php -->
-        <form action="../espace-membre/favoris/effacerFavorisDepuisVideosProcess.php" method="POST">
-            <button type="submit" name="erase" value="<?php echo $donnees["id"]; ?>"> - </button>
-        </form>
-
-        <?php
-        }else{
-        ?> 
-
-        <!-- Boutton favoris // ../espace-membre/favoris/ajoutFavorisProcess.php -->
-        <form action="../espace-membre/favoris/ajoutFavorisProcess.php" method="POST">
-            <button type="submit" name="save" value="<?php echo $donnees["id"]; ?>">+</button>
-        </form>
-
-    <?php 
-        }
-    } 
-    ?>
         <!-- Affichage des Videos -->
         <video width="100%" height="auto" controlsList="nodownload" oncontextmenu="return false;"
+
             <?php 
             // Si le statut membre n'est pas premium
             if ($_SESSION["plan"]== 0){
@@ -93,11 +74,6 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
 ?>
 </div>
 
-<!-- Bootstrap -->    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- JS pour les filtres -->    
 <script type="text/javascript" src="../JS/filtres.js"></script>
