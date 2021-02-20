@@ -63,7 +63,7 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     } 
     ?>    
         <!-- Affichage des Videos -->
-        <video width="100%" height="auto" controlsList="nodownload" oncontextmenu="return false;"
+        <video width="100%" height="auto" preload="auto" controlsList="nodownload" oncontextmenu="return false;"
 
             <?php 
             // Si le statut membre n'est pas premium
