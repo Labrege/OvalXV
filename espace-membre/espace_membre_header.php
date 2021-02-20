@@ -18,6 +18,7 @@ include 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
     <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-entrainement.css?v=<?php echo time(); ?>">
 
     <!-- JavaScript file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap -->    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -26,9 +27,11 @@ include 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
 
     <script>
         $(document).ready(function(){
+            //Button ajouter aux favoris de la page: espace_membre.php
             $('.btnFavorites').click(function(){
                 id = $(this).data('id');
                 videoid = $('#video' + id).val();
+                $(this).toggleClass("heart");
                 $.ajax({
                     url: '../espace-membre/favoris/ajoutFavorisProcess.php',
                     method: 'post',
@@ -44,7 +47,30 @@ include 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
                     alert(xhr.responseText);
                 });
             });
+
+            //Button enlever des favoris de la page: espace_membre_favoris.php
+            $('.btnDeleteFavorites').click(function(){
+                id = $(this).data('id');
+                favorisid = $('#favoris' + id).val();
+                $.ajax({
+                    url: '../espace-membre/favoris/ajoutFavorisProcess.php',
+                    method: 'post',
+                    dataType: 'json',
+                    data:{
+                        videoid: favorisid,
+                        action: 'add'
+                    },
+                    success: function(data){
+                            $('#favoris-container' + favorisid).fadeOut();
+                        }
+                }).fail(function(xhr, textStatus, errorThrown){
+                    alert(xhr.responseText);
+                });
+            });
         });
+    </script>
+
+    <script>
     </script>
     <title> OvalXV | Espace Membre</title>
 
@@ -85,5 +111,9 @@ include 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
                 </div>
             </div>
             <h2 class="h2"> <?php echo $_SESSION["plan"]; ?> </h2>
+        </div>
+
+        <div class="form-message">
+
         </div>
     </header>

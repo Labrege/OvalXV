@@ -30,9 +30,7 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     </ul>
 </div>
 
-<div class="form-message">
 
-</div>
 
 <div class="product">
 
@@ -40,12 +38,30 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     // On affiche chaque entrée une à une
     while ($donnees = $reponse->fetch_assoc()){
 ?>
-    <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
-    <!-- Ajout du bouton favoris -->
-    <button class="btnFavorites" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> + </button>
-
     <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
+
+    <?php 
+    // Si le statut le statut membre est + que prémium
+    if ($_SESSION["plan"]!=0){
+
+        $idVideo = $donnees["id"];
+        $sqlCheck = "SELECT * FROM favoris WHERE idVideo = '$idVideo'";
+
+        //verification dans la BD
+        $rs = mysqli_query($conn,$sqlCheck);
+        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
     
+        //Si video existe deja dans favoris
+        if($data[0] > 1){
+            $heartClass="heart";
+        }else{
+            $heartClass=" ";
+        }
+        ?>
+            
+    <?php 
+    } 
+    ?>    
         <!-- Affichage des Videos -->
         <video width="100%" height="auto" controlsList="nodownload" oncontextmenu="return false;"
 
@@ -68,6 +84,13 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
             ?>
         >
         <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
+        <div class="btnFavorite-container">
+            <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
+            <!-- Ajout du bouton favoris -->
+            <button class="btnFavorites <?php echo $heartClass ?>" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> <i class="fa fa-heart" ariria-hidden="true"></i> </button>
+        </div>
+
+        
     </div>
     <?php
 }

@@ -12,19 +12,19 @@ while ($donneesFavoris = $sqlFavoris->fetch_assoc()){
     $sqlVideo = $conn->query("SELECT * FROM video WHERE id='$videoId'");
     ?>
     <div class="favoris-container">
-        <div class="favoris">
-            <?php
+    <?php
             while ($donnees = $sqlVideo->fetch_assoc()){
             ?>
-            <div class="favoris-card">   
-                    <!-- Button pour effacer des favoris -->
-                    <form action="../espace-membre/favoris/effacerFavorisProcess.php" method="POST">
-                        <button type="submit" name="erase" value="<?php echo $donneesFavoris["id"]; ?>"> - </button>
-                    </form>     
-                    
+        <div class="favoris">
+            <div class="favoris-card" id="favoris-container<?php echo $donnees["id"]; ?>">               
                     <!-- Videos -->
                     <video width="100%" height="auto" controlsList="nodownload" oncontextmenu="return false;" controls>
                     <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
+                    <div class="btnFavorite-container">
+                        <input type="hidden" id="favoris<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
+                    <!-- Ajout du bouton favoris -->
+                        <button style="width: 25px; height: 25px;" class="btnDeleteFavorites" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites">  <i class="fa fa-trash" ariria-hidden="true"></i> </button>
+                    </div>
                 </div>
             <?php
             }

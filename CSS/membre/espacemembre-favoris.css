@@ -1,5 +1,3 @@
-
-
 .favoris-container{
     display: flex;
     justify-content: center;
@@ -23,6 +21,31 @@
     align-items: left;
     width: 350px;
     margin: 1%;
+}
+
+
+/* Button container */
+.btnFavorite-container{
+
+}
+
+/*Bouton favoris*/
+.btnDeleteFavorites{
+    background: none;
+    font-size: 2rem;
+    border: none;
+    color: darkgray;
+    margin: 5px;
+    margin-right: 20px;
+}
+
+.btnDeleteFavorites:hover{
+    color: rgb(19, 19, 173);
+    cursor: pointer;
+}
+
+.btnDeleteFavorites:focus{
+    outline: none;
 }
 
 
