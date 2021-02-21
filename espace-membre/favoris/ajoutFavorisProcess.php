@@ -16,22 +16,29 @@ if(isset($_POST['videoid'])){
 
     //Si video existe deja dans favoris
     if($data[0] > 1){
-        $message = "video already in favorites";
+        if($sqlDelete = $conn->query("DELETE FROM favoris WHERE idVideo='$idVideo'")){
+            //$message = "video deleted from favorites";
+        }
+        else{
+            //$message = "there was a problem! please try again later";
+        }
     }
     //Si video n'existe pas dans BD
     else{
         //Si ajout de video dans BD fontionne
         if($sql =$conn->query("INSERT INTO favoris (idVideo, idCreateur) VALUES ('$idVideo', '$idCreateur')")){
-            $message = "video inserted in favorites";
+            //$message = "video inserted in favorites";
         }
         //Si problème lors de l'ajout
         else{
-            $message = "a problem as occured";
+            //$message = "there was a problem! please try again later";
         }
     }
 }else {
-    $message = "there was a problem! please try again later";
+    //$message = "there was a problem! please try again later";
 }
+
+$message="";
 
 echo json_encode($message);
 ?>

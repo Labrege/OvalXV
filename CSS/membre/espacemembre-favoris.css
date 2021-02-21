@@ -1,12 +1,3 @@
-
-
-.favoris-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .favoris{
     display: flex;
     flex-direction: row;
@@ -14,15 +5,46 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+
 }
 
 .favoris-card{
+    width: 350px;
+    height: auto;
+    margin: 1%;
+    background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    width: 350px;
-    margin: 1%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 2px black;
+
+}
+
+.favoris-card img{
+    width: 90%;
+}
+
+
+/* Button container */
+
+/*Bouton favoris*/
+.btnDeleteFavorites{
+    background: none;
+    font-size: 1.5rem;
+    border: none;
+    color: darkgray;
+    margin: 5px;
+    margin-right: 20px;
+}
+
+.btnDeleteFavorites:hover{
+    color: rgb(19, 19, 173);
+    cursor: pointer;
+}
+
+.btnDeleteFavorites:focus{
+    outline: none;
 }
 
 
