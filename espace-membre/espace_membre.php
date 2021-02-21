@@ -42,26 +42,6 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     <?php
     if ($_SESSION["plan"]!=0){
 
-<<<<<<< Updated upstream
-        $idVideo = $donnees["id"];
-        $sqlCheck = "SELECT * FROM favoris WHERE idVideo = '$idVideo'";
-
-        //verification dans la BD
-        $rs = mysqli_query($conn,$sqlCheck);
-        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-    
-        //Si video existe deja dans favoris
-        if($data[0] > 1){
-            $heartClass="heart";
-        }else{
-            $heartClass=" ";
-        }
-        ?>
-            
-    <?php 
-    } 
-    ?>    
-=======
     $idVideo = $donnees["id"];
     $idCreateur = $_SESSION["useruid"];
     $idFavoris = $idVideo.$idCreateur;
@@ -80,7 +60,6 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     }
 }
     ?>   
->>>>>>> Stashed changes
         <!-- Affichage des Videos -->
         <video width="100%" height="auto" preload="auto" controlsList="nodownload" oncontextmenu="return false;"
 
