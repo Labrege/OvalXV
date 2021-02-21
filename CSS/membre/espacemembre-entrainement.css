@@ -87,6 +87,14 @@
     margin: 10px;
 }
 
+.section-title{
+    background-color: salmon;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 /*Titre*/
 .entrainementTitre{
     margin-bottom: 40px;
@@ -105,6 +113,7 @@
 .titreEntrainement:focus{
     outline: none;
 }
+
 
 /*Autres selections */
 
@@ -148,7 +157,9 @@
 .section-container{
     width: 90%;
     height: 400px;
-    border: 2px solid black
+    border: 2px solid black;
+    overflow: auto;
+
 }
 
 .section-header{

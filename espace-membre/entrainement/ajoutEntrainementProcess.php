@@ -21,7 +21,6 @@ if(isset($_POST['submit'])){
         VALUES ('$titreEntrainement', '$dateEntrainement','$heureEntrainement','$themeEntrainement')");
         $message = "<span class='form-success'> Votre entrainement a bien été enregistré! </span>";
         $errorEmpty = false;
-
     }
 }
 else{

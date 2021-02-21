@@ -7,13 +7,17 @@
                 var heure = $("#heureEntrainement").val();
                 var theme = $("#themeEntrainement").val();
                 var submit = $("#btnAjouterEntrainement").val();
-                $(".form-message").load("../espace-membre/entrainement/ajoutEntrainementProcess.php", {
+                $(".form-message").load("../espace-membre/entrainement/ajoutEntrainementProcess.php #container-message", {
                     titreEntrainement: titre,
                     dateEntrainement: date,
                     heureEntrainement: heure,
                     themeEntrainement: theme,
                     submit: submit
                 });
+            });
+
+            $(".addSectionButton").click(function(){
+                $(".section").append("<div class='section-title'><h3> Section: </h3> <input type='text'  placeholder='Titre de la section' name='titreEntrainement'> <button class='addExercice' name='addExercice'> + Exercice </button> <button class='supprimerSectionBtn' name='supprimerSection'> - Section </button></div>");
             });
         });
     
@@ -37,11 +41,11 @@
                 <input type="text" placeholder="thème principal" name="themeEntrainement" id="themeEntrainement">
             </div>
         </div>
-        <!--
+    
         <div class="sections">
             <div class="titreSections">
                 <h2> Sections</h2>
-                <button name="addsection"> + Ajouter une section </button>
+                <button class="addSectionButton" name="addSection" value="test"> + Ajouter une section </button>
             </div>
             <div class="section-container">
                 <div class="section-header">
@@ -49,12 +53,12 @@
                     <h3> effectif </h3>
                     <h3> temps </h3>
                     <h3> observation </h3>
-                    <button name="addsection"> + Ajouter un exercice </button>
                 </div>
                 <div class="section"></div>
             </div>
         </div>
-        -->
+        
+        <!-- Boutton pour valider l'envoie -->
         <button id="btnAjouterEntrainement" name="submit" value="test"> Ajouter aux entrainements </button>
         <div class="form-message">
 
