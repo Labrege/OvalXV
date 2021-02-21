@@ -5,6 +5,69 @@
 	font-family: 'Muli', sans-serif;
 }
 /* ------ Page entrainement ------ */
+.entrainement-page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.entrainement-titre-container{
+    margin-top: 30px;
+    padding: 5px;
+    border: #10222e 2px solid;
+}
+
+.liste-entrainement-container{
+    width: 80%;
+    height: 350px;
+    border: 2px solid black;
+    margin: 25px;
+    background-color: aliceblue;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-entrainement-container{
+    margin-bottom: 20px;
+}
+
+/* Tableau entrainement */
+
+.tableau-entrainement{
+    width: 100%;
+    text-align: center;
+}
+
+.tableau-entrainement tr:nth-child(odd):not(:first-child){
+    background-color: #10222e;
+    color: #FFFAE5;
+}
+
+.tableau-entrainement tr:nth-child(even){
+    background-color: #FFFAE5;
+    color: #10222e;
+}
+
+.tableau-entrainement tr{
+    height: 40px;
+}
+
+.tableau-entrainement-colones{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: salmon;
+    font-weight: bold;
+}
+
+.tableau-entrainement-colones td{
+    font-size: 1.2em;
+}
+
+
 
 
 
