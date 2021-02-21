@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include 'C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php';
+include '../includes/dbh.inc.php';
 
 ?>
 <!DOCTYPE html>
