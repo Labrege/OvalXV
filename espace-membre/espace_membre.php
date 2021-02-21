@@ -48,11 +48,12 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
         $sqlCheck = "SELECT * FROM favoris WHERE idVideo = '$idVideo'";
 
         //verification dans la BD
-        $rs = mysqli_query($conn,$sqlCheck);
-        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+        $result = mysqli_query($conn, $sqlCheck);
+
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     
         //Si video existe deja dans favoris
-        if($data[0] > 1){
+        if(isset($row['id'])){
             $heartClass="heart";
         }else{
             $heartClass=" ";
