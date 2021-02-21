@@ -113,8 +113,4 @@ include '../includes/dbh.inc.php';
             </div>
             <h2 class="h2"> <?php echo $_SESSION["plan"]; ?> </h2>
         </div>
-
-        <div class="form-message">
-
-        </div>
     </header>

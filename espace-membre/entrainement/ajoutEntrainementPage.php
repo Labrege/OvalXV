@@ -7,14 +7,13 @@
                 var heure = $("#heureEntrainement").val();
                 var theme = $("#themeEntrainement").val();
                 var submit = $("#btnAjouterEntrainement").val();
-                $(".form-message").load("../espace-membre/entrainement/ajoutEntrainementProcess.php #container-message", {
+                $(".form-message").load("../espace-membre/entrainement/ajoutEntrainementProcess.php", {
                     titreEntrainement: titre,
                     dateEntrainement: date,
                     heureEntrainement: heure,
                     themeEntrainement: theme,
                     submit: submit
                 });
-                $(".tableau-entrainement").append($('<div></div>').load('../espace-membre/entrainement/ajoutEntrainementProcess.php #container-ligne'));
             });
         });
     

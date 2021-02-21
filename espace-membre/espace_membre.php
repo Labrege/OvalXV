@@ -9,9 +9,6 @@ if (isset($_SESSION["useruid"])){
 $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
 ?>
 
-<div id="message-container" style="color: red; text-align: center;">
-</div>
-
 
 <!-- Filtres -->
 <div id="filtres">
