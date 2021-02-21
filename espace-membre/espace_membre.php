@@ -39,11 +39,10 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     while ($donnees = $reponse->fetch_assoc()){
 ?>
     <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
-
-    <?php 
-    // Si le statut le statut membre est + que prémium
+    <?php
     if ($_SESSION["plan"]!=0){
 
+<<<<<<< Updated upstream
         $idVideo = $donnees["id"];
         $sqlCheck = "SELECT * FROM favoris WHERE idVideo = '$idVideo'";
 
@@ -62,6 +61,26 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     <?php 
     } 
     ?>    
+=======
+    $idVideo = $donnees["id"];
+    $idCreateur = $_SESSION["useruid"];
+    $idFavoris = $idVideo.$idCreateur;
+
+    $sqlCheck = "SELECT * FROM favoris WHERE idFavoris = '$idFavoris'";
+
+    //verification dans la BD
+    $rs = mysqli_query($conn,$sqlCheck);
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+
+    //Si video existe deja dans favoris
+    if($data[0] > 1){
+        $heartClass="heart";
+    }else{
+        $heartClass=" ";
+    }
+}
+    ?>   
+>>>>>>> Stashed changes
         <!-- Affichage des Videos -->
         <video width="100%" height="auto" preload="auto" controlsList="nodownload" oncontextmenu="return false;"
 
