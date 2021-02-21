@@ -12,7 +12,7 @@ if(!isset($_GET["pid"]) || !in_array($_GET["pid"], $products["pids"]) || !isset(
   exit();
 }
 
-require_once('C:\xampp\htdocs\OVAL XV\vendor\autoload.php');
+require_once('C:\xampp\htdocs\OvaleXV\vendor\autoload.php');
 
 $stripe = [
 "secret_key"      => "sk_test_51HqQHPFgXh2KdvEKH1wqZ2YHmkGDnrvIBYsjXPFOx5XgtijlDm0hcDLLUqntSa7OzOC0raZIL8Z2krNk130VUKFL00vqlN7izh",
