@@ -38,8 +38,8 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
                 <input name="lastname" class="material-input__input" type="text" id="lastname" placeholder="Dupont" value=<?php echo $_SESSION["usersurname"]; ?>>
             </div>
             <div class="ligne ">
-                <label class="material-input__label" for="useruid">Nom d'utilisateur</label>
-                <input name="useruid" class="material-input__input" type="text" id="useruid" placeholder="John Dupont" value=<?php echo $_SESSION["useruid"]; ?>>
+                <label class="material-input__label" for="useruid" >Nom d'utilisateur</label>
+                <input name="useruid" class="material-input__input" type="text" disabled="disabled" id="useruid" placeholder="John Dupont" value=<?php echo $_SESSION["useruid"]; ?>>
             </div>
 
             <div class="ligne ">
@@ -62,13 +62,29 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
                 <input name="motdepasse" class="material-input__input" type="text" id="motdepasse" placeholder="*******" value=>
             </div>
         </div>
+        <div class="form-valider">
+            
+            <input type="submit" disabled="" class="button-valide"name="valider" value="Mettre à jour">
+
+        </div>
     </form>
-    <div class="form-valider">
-        <button type="submit" disabled="" class="button-valide">Mettre à jour</button>
-    </div>
+    
+
 
 </div>
 
-
+<div class="ligne ">
+<?php
+    if(isset($_POST['envoi'])){ // si formulaire soumis
+    ;
+    echo $_POST['lastname'];
+    echo $_POST['useruid'];
+    echo $_POST['email'];
+    echo $_POST['birthdate'];
+    echo $_POST['Club'];
+    echo $_POST['motdepasse'];
+    }
+    ?>
+</div>
 
 

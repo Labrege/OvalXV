@@ -2,6 +2,7 @@
 h2{
     margin-top: 2em;
     text-align: center;
+    color: #10222e;
 }
 .formulaire-information{
     position: relative;
@@ -27,9 +28,15 @@ form {
     margin-top: 1em;
     flex-direction: column;
     flex-wrap: wrap;
-    
     justify-content: space-between;
-
+    color: #132577;
+    font-weight: bold;
+}
+.material-input__input{
+    color: #5a6188fb;
+    border-radius: 5px;
+    font-weight: 300;
+    font-style:italic;
 }
 
 .form-valider{
@@ -40,9 +47,28 @@ form {
 }
 
 .button-valide
-{   align-items: center;
+{
+    width:250px;
     margin: auto;
     position: relative;
+    border: 1px solid white;
     height:50px;
-    width: 500px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #10222e;
+    color: #FFFAE5;
+   
+}
+
+.button-valide:hover
+{
+    color: #10222e;
+    transition: ease-out 0.5s;
+    background-color: #FFFAE5;
+}
+
+
+.material-input__label{
+    color: #132577;
+    
 }
