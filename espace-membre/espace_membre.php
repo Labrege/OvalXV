@@ -9,9 +9,6 @@ if (isset($_SESSION["useruid"])){
 $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
 ?>
 
-<div id="message-container" style="color: red; text-align: center;">
-</div>
-
 
 <!-- Filtres -->
 <div id="filtres">
@@ -39,30 +36,27 @@ $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
     while ($donnees = $reponse->fetch_assoc()){
 ?>
     <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
-
-    <?php 
-    // Si le statut le statut membre est + que prémium
+    <?php
     if ($_SESSION["plan"]!=0){
 
-        $idVideo = $donnees["id"];
-        $sqlCheck = "SELECT * FROM favoris WHERE idVideo = '$idVideo'";
+    $idVideo = $donnees["id"];
+    $idCreateur = $_SESSION["useruid"];
+    $idFavoris = $idVideo.$idCreateur;
 
-        //verification dans la BD
-        $result = mysqli_query($conn, $sqlCheck);
+    $sqlCheck = "SELECT * FROM favoris WHERE idFavoris = '$idFavoris'";
 
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    
-        //Si video existe deja dans favoris
-        if(isset($row['id'])){
-            $heartClass="heart";
-        }else{
-            $heartClass=" ";
-        }
-        ?>
-            
-    <?php 
-    } 
-    ?>    
+    //verification dans la BD
+    $rs = mysqli_query($conn,$sqlCheck);
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+
+    //Si video existe deja dans favoris
+    if($data[0] > 1){
+        $heartClass="heart";
+    }else{
+        $heartClass=" ";
+    }
+}
+    ?>   
         <!-- Affichage des Videos -->
         <video width="100%" height="auto" preload="auto" controlsList="nodownload" oncontextmenu="return false;"
 
