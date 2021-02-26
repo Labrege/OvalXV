@@ -15,6 +15,7 @@ form {
     display: block;
     margin-top: 0em;
     margin-bottom: 2em;
+    
 }
 
 .user-form {
@@ -31,12 +32,21 @@ form {
     justify-content: space-between;
     color: #132577;
     font-weight: bold;
+
 }
 .material-input__input{
+    border: none;
+    outline: none;
     color: #5a6188fb;
     border-radius: 5px;
+    border-color: #d4af08;
     font-weight: 300;
     font-style:italic;
+}
+
+.material-input__input:focus{
+    border: solid;
+    border-color:#132577
 }
 
 .form-valider{
@@ -57,7 +67,6 @@ form {
     border-radius: 30px;
     background-color: #10222e;
     color: #FFFAE5;
-   
 }
 
 .button-valide:hover
