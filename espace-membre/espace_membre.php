@@ -9,92 +9,124 @@ if (isset($_SESSION["useruid"])){
 $reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
 ?>
 
+<script>
+        $(document).ready(function(){
+            //Check une seule checkbox pour les checkbox complement
+            $('.check').click(function() {
+                    $('.check').not(this).prop('checked', false);
+                });
 
-<!-- Filtres -->
-<div id="filtres">
-    <ul>
-        <li class="list" data-filter="all"> All </li>
-        <div class="dropdown">
-            <button class="dropbtn"> Skills ▼ </button>
-            <div class="dropdown-content">
-                <li class="list" data-filter="passe"> Passe </li>
-                <li class="list" data-filter="jeu_au_pied"> Jeu au pied </li>
-                <li class="list" data-filter="ruck"> Ruck </li>
-                <li class="list" data-filter="plaquage"> Plaquage </li>
-                <li class="list" data-filter="duel_offensif"> Duel Offensif </li>
-                <li class="list" data-filter="skills"> Tous les skills </li>
+            $(".form-filtre").submit(function(event){
+                event.preventDefault();
+
+                //renvoyer plusieurs checkbox à la recherche
+                var filtreEffectif = [];
+                $('input.checkBox:checkbox:checked').each(function () {
+                    filtreEffectif.push($(this).val());
+                });
+
+                var filtreComplement = $(".check:checked").val();
+
+                var submit = $("#btnRechercher").val();
+                $(".product").load("../espace-membre/filtreRechercheProcess.php", {
+                    filtreComplement: filtreComplement,
+                    filtreEffectif: filtreEffectif,
+                    submit: submit
+                });
+            });
+        });
+    
+</script>
+
+<h2> Vidéos </h2>
+<br>
+
+<div class="formCheckbox-container">
+    <form class="form-filtre" action="#" method="post">
+        <div class="filtres-container">
+            <!-- Checkbox effectif multiple -->
+            <div class="checkbox-effectif">
+                <h3> Effectif </h3>
+                <div class="tag">
+                    <input type="checkbox" id="complet" name="filtre-Effectif[]" value="complet" class="checkBox">
+                    <h2 class="tag-titre"> Complet </h2>
+                </div>
+                
+                <div class="tag">
+                    <input type="checkbox" id="reduit" name="filtre-Effectif[]" value="reduit" class="checkBox">
+                    <h2 class="tag-titre"> Réduit </h2>
+                </div>
+                
+                <div class="tag">
+                    <input type="checkbox" id="1vs1" name="filtre-Effectif[]" value="1vs1" class="checkBox">
+                    <h2 class="tag-titre"> 1 vs 1 </h2>
+                </div>
             </div>
-    </ul>
+
+            <!-- Checkbox effectif simple -->
+            <div class="checkbox-complement">
+                <h3> Complément </h3>
+                <div class="tag">
+                    <input type="checkbox" name="passe" class="check" value="passe">
+                    <h2 class="tag-titre"> Passe </h2>
+                </div>
+
+                <div class="tag">
+                    <input type="checkbox" name="ruck" class="check" value="ruck">
+                    <h2 class="tag-titre"> Ruck </h2>
+                </div>
+
+                <div class="tag">
+                    <input type="checkbox" name="plaquage" class="check" value="plaquage">
+                    <h2 class="tag-titre"> Plaquage </h2>
+                </div>
+            </div>
+            <div class="checkbox-complement">
+                <h3 style="visibility: hidden;"> Complément </h3>
+                <div class="tag">
+                    <input type="checkbox" name="passe" class="check" value="passe">
+                    <h2 class="tag-titre"> Passe </h2>
+                </div>
+
+                <div class="tag">
+                    <input type="checkbox" name="ruck" class="check" value="ruck">
+                    <h2 class="tag-titre"> Ruck </h2>
+                </div>
+
+                <div class="tag">
+                    <input type="checkbox" name="plaquage" class="check" value="plaquage">
+                    <h2 class="tag-titre"> Plaquage </h2>
+                </div>
+            </div>
+            <div class="checkbox-complement">
+                <h3 style="visibility: hidden;"> Complément </h3>
+                <div class="tag">
+                    <input type="checkbox" name="passe" class="check" value="passe">
+                    <h2 class="tag-titre"> Passe </h2>
+                </div>
+
+                <div class="tag">
+                    <input type="checkbox" name="ruck" class="check" value="ruck">
+                    <h2 class="tag-titre"> Ruck </h2>
+                </div>
+
+                <div class="tag">
+                    <input type="checkbox" name="plaquage" class="check" value="plaquage">
+                    <h2 class="tag-titre"> Plaquage </h2>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="btnContainer">
+            <input type="submit" value="Submit" id="btnRechercher">
+        </div>
+    </form>
 </div>
-
-
 
 <div class="product">
-
-<?php 
-    // On affiche chaque entrée une à une
-    while ($donnees = $reponse->fetch_assoc()){
-?>
-    <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
-    <?php
-    if ($_SESSION["plan"]!=0){
-
-    $idVideo = $donnees["id"];
-    $idCreateur = $_SESSION["useruid"];
-    $idFavoris = $idVideo.$idCreateur;
-
-    $sqlCheck = "SELECT * FROM favoris WHERE idFavoris = '$idFavoris'";
-
-    //verification dans la BD
-    $rs = mysqli_query($conn,$sqlCheck);
-    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-
-    //Si video existe deja dans favoris
-    if($data[0] > 1){
-        $heartClass="heart";
-    }else{
-        $heartClass=" ";
-    }
-}
-    ?>   
-        <!-- Affichage des Videos -->
-        <video width="100%" height="auto" preload="auto" controlsList="nodownload" oncontextmenu="return false;"
-
-            <?php 
-            // Si le statut membre n'est pas premium
-            if ($_SESSION["plan"]== 0){
-                // Si le statut de la video est "visible" -> renvoyer les controles
-                if ($donnees["StatutVideo"] == "visible"){
-                    echo "controls";
-                }
-                // Si le statut de la video n'est pas "visible" -> bloquer la video
-                else{
-                    echo "poster='../Images/TN/tn premium.PNG'";
-                }
-            }
-            // Si le statut membre est premium -> Lecture de toutes les vidéos
-            else{
-                echo "controls";
-            }
-            ?>
-        >
-        <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
-        <div class="btnFavorite-container">
-            <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
-            <!-- Ajout du bouton favoris -->
-            <button class="btnFavorites <?php echo $heartClass ?>" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> <i class="fa fa-heart" ariria-hidden="true"></i> </button>
-        </div>
-
-        
-    </div>
-    <?php
-}
-?>
 </div>
-
-
-<!-- JS pour les filtres -->    
-<script type="text/javascript" src="../JS/filtres.js"></script>
 
 </body>
 </html>

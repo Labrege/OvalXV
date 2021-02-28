@@ -21,7 +21,7 @@
             });
         });
     
-    </script>
+</script>
 
 <form class="form-entrainement" action="#" method="POST">
     <div id="entrainementPage">
