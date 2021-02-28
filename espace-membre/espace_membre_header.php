@@ -3,7 +3,6 @@ include '../espace-membre/espace_membre_liens.php'
 
 ?>
     <header>
-    
         <div class="header-container">
             
             <div class="logo-container">
