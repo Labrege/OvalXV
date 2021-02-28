@@ -4,8 +4,10 @@ require_once '../espace-membre/espace_membre_header.php';
 
 ?>
 <div id="espace_membre_abonnement">
-<h2> Mon abonnement </h2>
 
+<div class="titre-offres">
+<h2> Mon abonnement </h2>
+</div>
 <!-- 
 <h4> Gestion de mon abonnement </h4>
 <ul>

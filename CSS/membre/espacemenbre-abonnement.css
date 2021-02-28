@@ -3,6 +3,15 @@
     background-color: #FFFAE5;
     width: 100%;
 }
+
+.titre-offres {
+    margin-bottom: 40px;
+    background-color: salmon;
+    color: #FFFAE5;
+    text-transform: uppercase;
+    clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
+}
+
 #espace_membre_abonnement h2{
     padding: 2.5em;
     margin-top: 0em;
