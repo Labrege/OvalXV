@@ -2,21 +2,25 @@
 {
     background-color: #FFFAE5;
     width: 100%;
+    height: 100%;
 }
 
 .titre-offres {
-    margin-bottom: 40px;
-    background-color: salmon;
-    color: #FFFAE5;
-    text-transform: uppercase;
-    clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
+    padding-top: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#espace_membre_abonnement h2{
-    padding: 2.5em;
-    margin-top: 0em;
-    color: #10222e;
-    font-size: 2.5em;
+.titre-offres h2{
+    color: white;
+    background-color: salmon;
+    clip-path: polygon(0 0, 100% 10%, 100% 85%, 5% 100%);
+    font-size: 2.5rem;
+    margin: 20px;
+    margin-bottom: 5%;
+    padding: 20px;
+    text-transform: uppercase;
 }
 
 .offre_abonement_global
@@ -129,4 +133,5 @@
 .prix_par_an{
     font-size: 1em;
     margin-bottom: 10%;
+    margin-left:20%;
 }

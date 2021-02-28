@@ -23,7 +23,7 @@ require_once '../espace-membre/espace_membre_header.php';
     <div class="level_plan" >
         <div class="plan_abonnement"><!-- abonement gratuit-->
             <div class="titre">
-                   <h3>Essaie</h3>
+                   <h3>Essai</h3>
                    <img src="../Images/icons-abonement-bronze.png" alt="">
             </div>
             
@@ -32,8 +32,8 @@ require_once '../espace-membre/espace_membre_header.php';
                 <div class="prix_par_an hidden">gratuit</div>
                 <div class="contenue_propose">
                     <ul class="liste_contenu_plan">
-                        <li class="contenu_plan"><img src="../Images/tick.png" alt=""> <p>acces a 20 videos </p></li>
-                        <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>nombre d'entrainement disponible 5</p> </li>
+                        <li class="contenu_plan"><img src="../Images/tick.png" alt=""> <p>accès à 20 vidéos </p></li>
+                        <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>nombres d'entrainements disponibles: 5</p> </li>
                         <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>2 appareils pour un seul compte </p></li>
                     </ul>
                 </div>
@@ -55,8 +55,8 @@ require_once '../espace-membre/espace_membre_header.php';
                 <div class="prix_par_an">*offre annuel: 100€/ans</div>
                 <div class="contenue_propose">
                     <ul class="liste_contenu_plan">
-                        <li class="contenu_plan"><img src="../Images/tick.png" alt=""> <p>acces a 20 videos </p></li>
-                        <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>nombre d'entrainement disponible 5 </p></li>
+                        <li class="contenu_plan"><img src="../Images/tick.png" alt=""> <p>accès à 20 vidéos </p></li>
+                        <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>nombres d'entrainements disponibles : 5 </p></li>
                         <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>2 appareils pour un seul compte </p></li>
                     </ul>
                 </div>
@@ -77,8 +77,8 @@ require_once '../espace-membre/espace_membre_header.php';
                 <div class="prix_par_an">*offre annuel: 250€/ans</div>
                 <div class="contenue_propose">
                     <ul class="liste_contenu_plan">
-                        <li class="contenu_plan"><img src="../Images/tick.png" alt=""><p> acces a 20 videos </p></li>
-                        <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>nombre d'entrainement disponible 5</p> </li>
+                        <li class="contenu_plan"><img src="../Images/tick.png" alt=""><p> accès à 20 vidéos </p></li>
+                        <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>nombres d'entrainements disponibles : 5</p> </li>
                         <li class="contenu_plan"> <img src="../Images/tick.png" alt=""><p>2 appareils pour un seul compte</p> </li>
                     </ul>
                 </div>

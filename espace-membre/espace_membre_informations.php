@@ -8,9 +8,11 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 
 ?>
 
+<div class=container_information>
 
+<div class="titre-offres">
 <h2> Mes informations </h2>
-</br>
+</div>
 <!--
 <?php echo $_SESSION["useruid"]; ?> </br></br>
 <?php echo $_SESSION["username"]; ?> </br></br>
@@ -72,7 +74,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 
 
 </div>
-
+</div>
 <div class="ligne ">
 <?php
     if(isset($_POST['envoi'])){ // si formulaire soumis

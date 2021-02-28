@@ -1,20 +1,19 @@
 
-h2{
-    margin-top: 2em;
-    text-align: center;
-    color: #10222e;
+.container_information{
+    background-color: #FFFAE5;
+    width: 100%;
+    height:100%;
 }
 .formulaire-information{
     position: relative;
     display: flex;
-    margin-top: 1em;
     font-size: 16px;
     width: 100%;
 }
 form {
     display: block;
     margin-top: 0em;
-    margin-bottom: 2em;
+    padding-bottom: 2em;
     
 }
 
@@ -35,18 +34,20 @@ form {
 
 }
 .material-input__input{
-    border: none;
+    border: solid;
     outline: none;
-    color: #5a6188fb;
+    color: #3a3e57fb;
     border-radius: 5px;
-    border-color: #d4af08;
-    font-weight: 300;
+    background-color: #d3eaf1;
+    border-color:#132577;
+    font-size: 1.2em;
     font-style:italic;
+    padding-left: 1rem ;
 }
 
 .material-input__input:focus{
     border: solid;
-    border-color:#132577
+    border-color:salmon;
 }
 
 .form-valider{
@@ -72,6 +73,8 @@ form {
 .button-valide:hover
 {
     color: #10222e;
+    border: solid;
+    border-color: #10222e;
     transition: ease-out 0.5s;
     background-color: #FFFAE5;
 }
@@ -79,5 +82,5 @@ form {
 
 .material-input__label{
     color: #132577;
-    
+    font-size: 1.5em;
 }
