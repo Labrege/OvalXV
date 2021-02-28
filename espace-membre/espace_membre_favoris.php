@@ -9,7 +9,9 @@ if (isset($_SESSION["useruid"])){
         //Affichage des données
     ?>
 
-    <h2> Favoris </h2>
+    <div class="titre-offres">
+        <h2> Favoris </h2>
+    </div>
 
     <br>
     <br>
