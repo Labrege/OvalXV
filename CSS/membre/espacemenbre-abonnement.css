@@ -1,0 +1,123 @@
+#espace_membre_abonnement
+{
+    background-color: #FFFAE5;
+    width: 100%;
+}
+#espace_membre_abonnement h2{
+    padding: 2.5em;
+    margin-top: 0em;
+    color: #10222e;
+    font-size: 2.5em;
+}
+
+.offre_abonement_global
+{
+    width:100%;
+    height: 60%;
+   margin-bottom: 15em;
+}
+
+.level_plan{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.plan_abonnement{
+    border: 3px  solid;
+    border-color: white;
+    border-radius: 30px;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center ;
+    margin-bottom: 10em;
+    background-color: #10222e;
+    color: #FFFAE5;
+}
+
+
+
+.titre{
+    display: flex;
+    justify-content: space-around;
+    align-items: unset;
+    height: 18%;
+    width:100%;
+    
+}
+
+.titre h3{
+    font-size: 2em;
+}
+
+.titre img{
+    height: 60%;
+
+}
+
+
+.liste_contenu_plan li{
+    list-style: none;
+    margin-bottom: 5%;
+    display: flex;
+}
+
+.liste_contenu_plan li img{
+    height: 12%;
+    width:12%;
+}
+.liste_contenu_plan li p{
+    margin-left: 5%;
+}
+
+.boite-bouton-valider{
+    height:3em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bouton_valider{
+    align-items: center ;
+    border: 1px solid white;
+    height:100%;
+    width: 50%;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #FFFAE5;
+    color: #10222e;
+    padding: auto;
+    margin-top: 10%;
+    outline: none;
+}
+
+.bouton_valider:hover{
+    background-color:#10222e;
+    color:#FFFAE5;
+
+}
+
+.bouton_valider:focus{
+    outline:none;
+}
+
+
+.hidden{
+    visibility: hidden;
+}
+
+
+.prix_par_mois{
+    font-size: 1.5em;
+    margin-left: 10%;
+    
+}
+
+.prix_par_an{
+    font-size: 1em;
+    margin-bottom: 10%;
+}
