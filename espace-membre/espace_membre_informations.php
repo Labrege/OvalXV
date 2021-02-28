@@ -11,7 +11,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 <div class=container_information>
 
 <div class="titre-offres">
-<h2> Mes informations </h2>
+    <h2> Mes informations </h2>
 </div>
 <!--
 <?php echo $_SESSION["useruid"]; ?> </br></br>
@@ -27,7 +27,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
     <button type="submit" name="submit"> Changer mon mot de passe </button>
 </form>
 -->
-<div classe=formulaire-information>
+<div class="formulaire-information">
     <form>
         <div class="user-form">
             <div class="ligne ">

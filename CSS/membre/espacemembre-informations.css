@@ -79,6 +79,10 @@ form {
     background-color: #FFFAE5;
 }
 
+.button-valide:focus{
+    outline: none;
+}
+
 
 .material-input__label{
     color: #132577;

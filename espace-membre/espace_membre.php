@@ -5,17 +5,15 @@ include '../espace-membre/espace_membre_header.php';
 //verifie la bonne connexion au compte
 if (isset($_SESSION["useruid"])){
 ?>
-
 <script>
         $(document).ready(function(){
             //Check une seule checkbox pour les checkbox complement
             $('.check').click(function() {
-                    $('.check').not(this).prop('checked', false);
-                });
-
+                $('.check').not(this).prop('checked', false);
+            });
+             
             $(".form-filtre").submit(function(event){
                 event.preventDefault();
-
                 //renvoyer plusieurs checkbox à la recherche
                 var filtreEffectif = [];
                 $('input.checkBox:checkbox:checked').each(function () {
@@ -25,6 +23,7 @@ if (isset($_SESSION["useruid"])){
                 var filtreComplement = $(".check:checked").val();
 
                 var submit = $("#btnRechercher").val();
+                
                 $(".product").load("../espace-membre/filtreRechercheProcess.php", {
                     filtreComplement: filtreComplement,
                     filtreEffectif: filtreEffectif,
@@ -35,7 +34,9 @@ if (isset($_SESSION["useruid"])){
     
 </script>
 
-<h2> Vidéos </h2>
+<div class="titre-offres">
+    <h2>Vidéos </h2>
+</div>
 
 <div class="formCheckbox-container">
     <form class="form-filtre" action="#" method="post">
@@ -100,7 +101,7 @@ if (isset($_SESSION["useruid"])){
         <br>
 
         <div class="btnContainer">
-            <button type="submit" value="Submit" id="btnRechercher"> Rechercher </button>
+            <button type="submit" value="Submit" id="btnRechercher" class="button-valide"> Rechercher </button>
         </div>
     </form>
 </div>
