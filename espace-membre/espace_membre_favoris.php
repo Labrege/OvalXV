@@ -8,6 +8,12 @@ if (isset($_SESSION["useruid"])){
     $sqlFavoris = $conn->query("SELECT * FROM favoris WHERE idCreateur = '$uid'");
         //Affichage des données
     ?>
+
+    <h2> Favoris </h2>
+
+    <br>
+    <br>
+
     <div class="favoris">
     <?php
     while ($donneesFavoris = $sqlFavoris->fetch_assoc()){

@@ -1,33 +1,59 @@
 /*Fitres*/
-#filtres{
+
+.formCheckbox-container{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.form-filtre{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
 
-#filtres ul{
-    margin-top: 20px;
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.filtres-container{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 50px;
+    align-items: center;
 }
 
-#filtres ul li{
-    list-style: none;
-    background-color: #FFFAE5;
-    color: #10222e;
-    padding: 6px;
-    margin: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
+.checkbox-effectif{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-#filtres ul li.active{
-    background-color: #10222e;
-    color: #FFFAE5;
+.checkbox-complement{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+.tag{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    margin: 4px;
+    padding: 4px;
+}
+
+.tag input{
+    margin-right: 40px;
+}
+
+.tag-titre{
+    color: black;
+    font-size: 1rem;
+    margin: 5px;
+}
+
 
 /*Videos*/
 
