@@ -30,7 +30,7 @@ img{
 }
 .formulaire{
     height: 80%;
-    width: 50%;
+    width: 50%; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,7 +130,7 @@ form input{
 }
 
 .show-password{
-    width: 500px;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
