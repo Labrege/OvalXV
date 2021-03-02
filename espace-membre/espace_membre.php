@@ -1,9 +1,6 @@
 <?php
-
 include '../espace-membre/espace_membre_header.php';
-
 //verifie la bonne connexion au compte
-if (isset($_SESSION["useruid"])){
 ?>
 <script>
         $(document).ready(function(){
@@ -115,11 +112,7 @@ if (isset($_SESSION["useruid"])){
 </body>
 </html>
 
-<?php 
-
-//Si mauvaise connexion - Retour à la page login
-}
-else{
-    header("location: ../login.php");
-}
+<?php
+include '../espace-membre/espace_membre_footer.php';
 ?>
+

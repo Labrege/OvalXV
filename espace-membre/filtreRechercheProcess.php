@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'C:\xampp\htdocs\OvaleXV\includes\dbh.inc.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
+
 ?>
 <script>
         $(document).ready(function(){
@@ -90,7 +91,7 @@ if (isset($_POST['submit'])){
             ?>
             <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
             <?php
-                if ($_SESSION["plan"]!=0){
+                if ($_SESSION["plan"]!==0){
                     $idVideo = $donnees["id"];
                     $idCreateur = $_SESSION["useruid"];
                     $idFavoris = $idVideo.$idCreateur;

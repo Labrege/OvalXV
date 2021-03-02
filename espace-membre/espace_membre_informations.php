@@ -27,7 +27,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
     <button type="submit" name="submit"> Changer mon mot de passe </button>
 </form>
 -->
-<div class="formulaire-information">
+<div classe=formulaire-information>
     <form>
         <div class="user-form">
             <div class="ligne ">
@@ -51,7 +51,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 
             <div class="ligne ">
                 <label class="material-input__label" for="firstname">Date de naissance</label>
-                <input name="birthdate" class="material-input__input" type="date" id="birthdate" placeholder="2000-01-01" value=>
+                <input name="birthdate" class="material-input__input" type="date" id="birthdate" placeholder="DD/MM/YY">
             </div>
 
             <div class="ligne ">
@@ -64,10 +64,9 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
                 <input name="motdepasse" class="material-input__input" type="text" id="motdepasse" placeholder="*******" value=>
             </div>
         </div>
-        <div class="form-valider">
-            
-            <input type="submit" disabled="" class="button-valide"name="valider" value="Mettre à jour">
 
+        <div class="form-valider">
+            <input type="submit" disabled="" class="button-valide"name="valider" value="Mettre à jour">
         </div>
     </form>
     
@@ -76,16 +75,16 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 </div>
 </div>
 <div class="ligne ">
-<?php
-    if(isset($_POST['envoi'])){ // si formulaire soumis
-    ;
-    echo $_POST['lastname'];
-    echo $_POST['useruid'];
-    echo $_POST['email'];
-    echo $_POST['birthdate'];
-    echo $_POST['Club'];
-    echo $_POST['motdepasse'];
-    }
+    <?php
+        if(isset($_POST['envoi'])){ // si formulaire soumis
+        ;
+        echo $_POST['lastname'];
+        echo $_POST['useruid'];
+        echo $_POST['email'];
+        echo $_POST['birthdate'];
+        echo $_POST['Club'];
+        echo $_POST['motdepasse'];
+        }
     ?>
 </div>
 
