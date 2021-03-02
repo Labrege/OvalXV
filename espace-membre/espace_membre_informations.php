@@ -51,7 +51,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 
             <div class="ligne ">
                 <label class="material-input__label" for="firstname">Date de naissance</label>
-                <input name="birthdate" class="material-input__input" type="date" id="birthdate" placeholder="2000-01-01" value=>
+                <input name="birthdate" class="material-input__input" type="date" id="birthdate" placeholder="DD/MM/YY">
             </div>
 
             <div class="ligne ">

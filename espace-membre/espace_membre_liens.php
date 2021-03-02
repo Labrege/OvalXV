@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../includes/dbh.inc.php';
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,6 +74,5 @@ include '../includes/dbh.inc.php';
     <script>
     </script>
     <title> OvalXV | Espace Membre</title>
-
 </head>
 <body>

@@ -1,6 +1,8 @@
 <?php
-include '../espace-membre/espace_membre_liens.php'
 
+include '../espace-membre/espace_membre_liens.php';
+
+if (isset($_SESSION["useruid"])){
 ?>
     <header>
         <div class="header-container">
@@ -38,3 +40,10 @@ include '../espace-membre/espace_membre_liens.php'
             <h2 class="h2"> <?php echo $_SESSION["plan"]; ?> </h2>
         </div>
     </header>
+
+<?php 
+//Si mauvaise connexion - Retour à la page login
+}else{
+    header("location: ../login.php");
+}
+?>
