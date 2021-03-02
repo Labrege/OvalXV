@@ -4,16 +4,20 @@
     width: 100%;
     height:100%;
 }
+
 .formulaire-information{
     position: relative;
     display: flex;
     font-size: 16px;
     width: 100%;
+    justify-content: center;
+    
 }
 form {
     display: block;
     margin-top: 0em;
     padding-bottom: 2em;
+    width: 50%;
     
 }
 
@@ -31,8 +35,8 @@ form {
     justify-content: space-between;
     color: #132577;
     font-weight: bold;
-
 }
+
 .material-input__input{
     border: solid;
     outline: none;
@@ -68,6 +72,7 @@ form {
     border-radius: 30px;
     background-color: #10222e;
     color: #FFFAE5;
+    margin-top: 5em;
 }
 
 .button-valide:hover
