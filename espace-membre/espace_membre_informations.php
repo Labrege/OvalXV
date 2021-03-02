@@ -27,7 +27,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
     <button type="submit" name="submit"> Changer mon mot de passe </button>
 </form>
 -->
-<div classe=formulaire-information>
+<div class="formulaire-information">
     <form>
         <div class="user-form">
             <div class="ligne ">
