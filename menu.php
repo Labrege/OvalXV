@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="CSS/Menu/Menu-Impressions.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="CSS/Menu/Menu-Reseaux.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="CSS/aos.css?v=<?php echo time(); ?>">
+
+    
 </head>
 <body>
 	<header>
@@ -20,7 +22,7 @@
 			<ul>
 				<li> <a href="#apropos">  A Propos </a></li>
 				<li> <a href="#offres"> Nos Offres </a></li>
-				<li> <img src="Images/logoheader.png" alt="ovalxv logo"></li>
+				<li> <img id="logo_ovalXV" src="Images/logoheader.png" alt="ovalxv logo"></li>
 				<li> <a href="#reseaux-fond"> Contactez-nous </a></li>
                 <li> <a href="login.php" target="_blank"> Connexion </a></li>
 			</ul>	
@@ -39,6 +41,7 @@
 	</div>
 	
 	<div id="apropos">
+        
         <div class="titre-fblanc">
             <h1> A Propos </h1>
         </div>
@@ -178,6 +181,6 @@
 	</script>
 
 
-	
+<script type="text/javascript" src="Js/test.js"></script>
 </body>
 </html>

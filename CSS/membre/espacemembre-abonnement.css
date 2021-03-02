@@ -51,8 +51,11 @@
     background-color: #10222e;
     color: #FFFAE5;
 }
+/*#8FAADC*/
 
-
+.plan_abonnement:nth-child(1){
+    background-color: #8FAADC;
+}
 
 .titre{
     display: flex;
