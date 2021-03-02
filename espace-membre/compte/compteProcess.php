@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('C:\xampp\htdocs\OVAL XV\includes\dbh.inc.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
+
 
 if (isset($_POST["submit"])){
     if ($_POST["pwd"] == $_POST["pwdrepeat"]){

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:\xampp\htdocs\OvaleXV\includes\dbh.inc.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
  
 if(isset($_POST['videoid'])){
     $idVideo = $_POST['videoid'];
