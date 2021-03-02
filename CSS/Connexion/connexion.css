@@ -64,6 +64,11 @@ form input{
     border-radius: 80px;
 }
 
+form input:focus{
+    outline: none;
+}
+
+
 .input-password{
     margin-bottom: 0px;
 }
@@ -122,11 +127,16 @@ form input{
     background-color: #10222e;
 }
 
+
 #bouton-connexion:hover{
     background-color: #FFFAE5;
     color: #10222e;
     transition: ease-in 0.5s;
     cursor: pointer;
+}
+
+#bouton-connexion:focus{
+    outline:none;
 }
 
 .show-password{
