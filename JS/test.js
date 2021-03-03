@@ -22,11 +22,14 @@ console.log("Kawi");*/
 /*var test= document.getElementById("apropos");
 test.innerHTML=" test java";*/
 
-
+//selection d'un element du document
 const logo =document.getElementById('logo_ovalXV');
-const menu_burger= document.createElement("div");
-const showcase=document.getElementsByClassName('showcase');
+//const showcase=document.getElementsByClassName('showcase');
 const header=document.querySelector("header");
+const bouton_burger=document.getElementById('icone_burger');
+
+//creation d'une div
+const menu_burger= document.createElement("div");
 
 function onClick2()
 {
@@ -49,6 +52,6 @@ const menu_ouvert=document.getElementById('menu_ouvert');
 console.log("Kawi");
 menu_burger.addEventListener('click',onClick3);
 
-logo.addEventListener('click',onClick2);
+bouton_burger.addEventListener('click',onClick2);
 
 

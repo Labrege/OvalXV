@@ -13,19 +13,28 @@
 	<link rel="stylesheet" href="CSS/Menu/Menu-Impressions.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="CSS/Menu/Menu-Reseaux.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="CSS/aos.css?v=<?php echo time(); ?>">
-
+<!-- JavaScript file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a href="https://icons8.com/icon/RpicGn8llwF8/menu"></a>
     
 </head>
 <body>
 	<header>
 		<div id="sommaire">
-			<ul>
+			<ul class="menu_menu_ordinateur">    <!--version ordinateur-->
 				<li> <a href="#apropos">  A Propos </a></li>
 				<li> <a href="#offres"> Nos Offres </a></li>
 				<li> <img id="logo_ovalXV" src="Images/logoheader.png" alt="ovalxv logo"></li>
 				<li> <a href="#reseaux-fond"> Contactez-nous </a></li>
                 <li> <a href="login.php" target="_blank"> Connexion </a></li>
-			</ul>	
+			</ul>
+            
+            <div class="menu_burger_phone"> <!--version mobile-->
+                <!--<div class="icone_burger"><i class="fa fa-bars" aria-hidden="true"></i></div>-->
+                <img  id=icone_burger src="https://img.icons8.com/ultraviolet/120/000000/menu--v1.png"/>
+                <img id="logo_ovalXV_mobile" src="Images/logoheader.png" alt="ovalxv logo"/>
+            </div>
+
 		</div>
 	</header>
 
