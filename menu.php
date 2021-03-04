@@ -29,11 +29,34 @@
                 <li> <a href="login.php" target="_blank"> Connexion </a></li>
 			</ul>
             
-            <div class="menu_burger_phone"> <!--version mobile-->
-                <!--<div class="icone_burger"><i class="fa fa-bars" aria-hidden="true"></i></div>-->
-                <img  id=icone_burger src="https://img.icons8.com/ultraviolet/120/000000/menu--v1.png"/>
-                <img id="logo_ovalXV_mobile" src="Images/logoheader.png" alt="ovalxv logo"/>
+            <div class="header_mobile">
+                <div class="hamburger-menu">
+                        <div class="ligne ligne-1"></div>
+                        <div class="ligne ligne-2"></div>
+                        <div class="ligne ligne-3"></div>
+                </div>
+                <img id="logo_ovalXV" src="Images/logoheader.png" alt="ovalxv logo">
             </div>
+            
+            
+            <nav class="navbar">
+                
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">a propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">point fort</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">contact</a>
+                    </li>
+                </ul>
+            </nav>
 
 		</div>
 	</header>
@@ -190,6 +213,7 @@
 	</script>
 
 
-<script type="text/javascript" src="Js/test.js"></script>
+
+<script type="text/javascript" src="Js/test3.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
