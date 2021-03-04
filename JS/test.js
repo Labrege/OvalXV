@@ -36,7 +36,7 @@ function onClick2()
     menu_burger.setAttribute("id","menu_ouvert")
     menu_burger.innerHTML = "<li> <a href='#apropos'>  A Propos </a></li></br> contactez nous</br> connexion </br> fermer";
     menu_burger.style.height= "200px";
-    menu_burger.style.backgroundColor="green";
+    //menu_burger.style.backgroundColor="green";
     header.appendChild(menu_burger);
     
    
