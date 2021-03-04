@@ -65,7 +65,7 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 0 0 20% 40%;
+	/*border-radius: 40% 40% 40% 40%;*/
 
 	top:-1000px;
 }
@@ -118,7 +118,7 @@ body{
 		
 		
 		padding: 50px;
-		padding:50px;
+		padding: 50px;
 		cursor: pointer;
 	
 		display: flex;
