@@ -13,19 +13,51 @@
 	<link rel="stylesheet" href="CSS/Menu/Menu-Impressions.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="CSS/Menu/Menu-Reseaux.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="CSS/aos.css?v=<?php echo time(); ?>">
-
+<!-- JavaScript file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a href="https://icons8.com/icon/RpicGn8llwF8/menu"></a>
     
 </head>
 <body>
 	<header>
 		<div id="sommaire">
-			<ul>
+			<ul class="menu_menu_ordinateur">    <!--version ordinateur-->
 				<li> <a href="#apropos">  A Propos </a></li>
 				<li> <a href="#offres"> Nos Offres </a></li>
 				<li> <img id="logo_ovalXV" src="Images/logoheader.png" alt="ovalxv logo"></li>
 				<li> <a href="#reseaux-fond"> Contactez-nous </a></li>
                 <li> <a href="login.php" target="_blank"> Connexion </a></li>
-			</ul>	
+			</ul>
+            
+            <div class="header_mobile">
+                <div class="hamburger-menu">
+                        <div class="ligne ligne-1"></div>
+                        <div class="ligne ligne-2"></div>
+                        <div class="ligne ligne-3"></div>
+                </div>
+                <img id="logo_ovalXV" src="Images/logoheader.png" alt="ovalxv logo">
+            </div>
+            
+            
+            <nav class="navbar">
+                
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">a propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">point fort</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">contact</a>
+                    </li>
+                </ul>
+            </nav>
+
 		</div>
 	</header>
 
@@ -181,6 +213,7 @@
 	</script>
 
 
-<script type="text/javascript" src="Js/test.js"></script>
+
+<script type="text/javascript" src="Js/test3.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
