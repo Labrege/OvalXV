@@ -46,7 +46,7 @@ require_once '../espace-membre/espace_membre_header.php';
 
         <div class="plan_abonnement"><!-- abonement prenium-->
             <div class="titre">
-                   <h3>Prenium</h3>
+                   <h3>Premium</h3>
                    <img src="../Images/icons-abonement-argent.png" alt="">
             </div>
             

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
+$displayHeart = False;
 
 ?>
 <script>
@@ -76,7 +77,6 @@ if (isset($_POST['submit'])){
 
     }
 
-
     if (!empty($search)){
         $sqlQuery = "SELECT * FROM video WHERE " . $search;
     }
@@ -86,16 +86,21 @@ if (isset($_POST['submit'])){
 
     $searchSql = $conn->query($sqlQuery);
 
+    //Si la recherche donne un résultat
     if($searchSql->num_rows > 0){
+        //Tant qu'il y a des résultat dans la table, afficher...
         while ($donnees = $searchSql->fetch_assoc()){
             ?>
             <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
             <?php
+                //Si le plan est premium
                 if ($_SESSION["plan"]!==0){
                     $idVideo = $donnees["id"];
                     $idCreateur = $_SESSION["useruid"];
                     $idFavoris = $idVideo.$idCreateur;
-        
+                    $displayHeart = True;
+                    
+                    //On va chercher la base de donnée des favoris
                     $sqlCheck = "SELECT * FROM favoris WHERE idFavoris = '$idFavoris'";
         
                     //verification dans la BD
@@ -106,7 +111,7 @@ if (isset($_POST['submit'])){
                     if($data[0] > 1){
                         $heartClass="heart";
                     }else{
-                        $heartClass=" ";
+                        $heartClass="";
                     }
                 }
             ?>   
@@ -132,22 +137,25 @@ if (isset($_POST['submit'])){
                     ?>
                 >
                 <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
-                <div class="btnFavorite-container">
+                <?php
+                if($displayHeart==True){
+                ?>
+                 <div class="btnFavorite-container">
                     <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
                     <!-- Ajout du bouton favoris -->
                     <button class="btnFavorites <?php echo $heartClass ?>" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> <i class="fa fa-heart" ariria-hidden="true"></i> </button>
                 </div>  
+                <?php
+                }
+                ?>
             </div>
             <?php
-            }
-        
+            }  
     }
     else{
          echo "Aucune vidéo ne répond aux critères recherchés";
          echo "<br>";
          echo "<br>";    
     }
-
-   
 }
 ?>
