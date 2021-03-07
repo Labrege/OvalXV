@@ -140,7 +140,7 @@ if (isset($_POST['submit'])){
                 <?php
                 if($displayHeart==True){
                 ?>
-                 <div class="btnFavorite-container">
+                <div class="btnFavorite-container">
                     <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
                     <!-- Ajout du bouton favoris -->
                     <button class="btnFavorites <?php echo $heartClass ?>" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> <i class="fa fa-heart" ariria-hidden="true"></i> </button>

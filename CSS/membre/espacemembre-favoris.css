@@ -9,6 +9,7 @@
 }
 
 .favoris-card{
+    position: relative;
     width: 350px;
     height: auto;
     margin: 1%;
@@ -31,7 +32,7 @@
 /*Bouton favoris*/
 .btnDeleteFavorites{
     background: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border: none;
     color: darkgray;
     margin: 5px;
@@ -39,7 +40,7 @@
 }
 
 .btnDeleteFavorites:hover{
-    color: rgb(19, 19, 173);
+    color: white;
     cursor: pointer;
 }
 

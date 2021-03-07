@@ -1,68 +1,40 @@
-<script>
-        $(document).ready(function(){
-            $(".form-entrainement").submit(function(event){
-                event.preventDefault();
-                var titre = $("#titreEntrainement").val();
-                var date = $("#dateEntrainement").val();
-                var heure = $("#heureEntrainement").val();
-                var theme = $("#themeEntrainement").val();
-                var submit = $("#btnAjouterEntrainement").val();
-                $(".form-message").load("../espace-membre/entrainement/ajoutEntrainementProcess.php #container-message", {
-                    titreEntrainement: titre,
-                    dateEntrainement: date,
-                    heureEntrainement: heure,
-                    themeEntrainement: theme,
-                    submit: submit
-                });
-            });
+<?php
 
-            $(".addSectionButton").click(function(){
-                $(".section").append("<div class='section-title'><h3> Section: </h3> <input type='text'  placeholder='Titre de la section' name='titreEntrainement'> <button class='addExercice' name='addExercice'> + Exercice </button> <button class='supprimerSectionBtn' name='supprimerSection'> - Section </button></div>");
-            });
-        });
-    
-</script>
+require_once '../espace-membre/espace_membre_liens.php';
 
-<form class="form-entrainement" action="#" method="POST">
-    <div id="entrainementPage">
-        <div class="entrainementInputs">
-            <div class="entrainementTitre">
-                <label for="titreEntrainement" class="labelTitreEntrainement"> Entrainement : </label>
-                <input type="text"  id="titreEntrainement" placeholder="Titre de l'entrainement" name="titreEntrainement">
+?>
+
+
+<div class="ajout-page-container">
+    <div class="titre-ajout-page">
+        <h2> Créer votre entrainement </h2>
+    </div>
+    <div class="form-ajout-page">
+        <form action="#">
+            <input type="text" placeholder="Titre">
+            <input type="text" placeholder="Titre">
+            <input type="text" placeholder="Titre">
+            <input type="text" placeholder="Titre">
+            <input id="btn-sections" type="button" value=" + ajouter section">
+        </form>
+
+        <div class="sections-container">
+            <div class="sections-header">
+                <h2> Vos sections </h2>
             </div>
-            <div class="specification">
-                <label for="dateEntrainement"> Date : </label>
-                <input type="date" name="dateEntrainement" id="dateEntrainement">
-
-                <label for="heureEntrainement"> Heure : </label>
-                <input type="time" name="heureEntrainement" id="heureEntrainement">
-
-                <label for="themeEntrainement"> Thème : </label>
-                <input type="text" placeholder="thème principal" name="themeEntrainement" id="themeEntrainement">
-            </div>
-        </div>
-    
-        <div class="sections">
-            <div class="titreSections">
-                <h2> Sections</h2>
-                <button class="addSectionButton" name="addSection" value="test"> + Ajouter une section </button>
-            </div>
-            <div class="section-container">
-                <div class="section-header">
-                    <h3> Section N° </h3>
-                    <h3> effectif </h3>
-                    <h3> temps </h3>
-                    <h3> observation </h3>
+            <div id="section-titre-1" class='section-titre section-titre-1'>
+                <div class="section-titre-header">
+                    <input type='text' placeholder='Nom de la Section'> 
+                    <button id='1' class="supprSection" onClick="remove_section(this.id)"> - </button> 
+                    <button id='1' class="addExo" onClick="append_section(this.id)"> + </button>
                 </div>
-                <div class="section"></div>
+                <div id="section-exo-1" class="section-exo section-exo-1">
+            
+                </div>
             </div>
-        </div>
-        
-        <!-- Boutton pour valider l'envoie -->
-        <button id="btnAjouterEntrainement" name="submit" value="test"> Ajouter aux entrainements </button>
-        <div class="form-message">
-
+            
         </div>
     </div>
-</form>
+</div>
 
+<script src="../JS/sections.js"></script>

@@ -47,7 +47,7 @@ require_once '../espace-membre/espace_membre_header.php';
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <?php
-          require_once('../espace-membre/entrainement/ajoutEntrainementPage.php');
+            require '../espace-membre/entrainement/ajoutEntrainementPage.php';
           ?>
       </div>
     </div>
