@@ -92,3 +92,14 @@ require_once '../espace-membre/espace_membre_header.php';
 </div>
 
 </div>
+<script type="text/javascript" src="../JS/vanilla-tilt.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".plan_abonnement"),{
+            max:25,
+            speed:400,
+            glare: true,
+            "max-glare":0.4,
+        });
+    </script>
+</body>
+</html>
