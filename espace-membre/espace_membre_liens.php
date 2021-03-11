@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/dbh.inc.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
 ?>
 <!DOCTYPE html>
 <html>
