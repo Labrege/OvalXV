@@ -5,19 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="CSS/Connexion/connexion.css?v=<?php echo time(); ?>">
     <title> OvalXV | Mot de passe oublié </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 </head>
+<script>
+        $(document).ready(function(){ 
+            $("#form-forgotten-pwd").submit(function(event){
+                event.preventDefault();
+                var email = $(".forgot-email").val();
+                var submit = $("#bouton-mdp-perdu").val();
+            
+                $(".message").load("includes/send.inc.php", {
+                     email: email,
+                     submit: submit
+                });
+            });
+        });
+   </script>
 <body>
     <div class="container">
         <div class="formulaire">
             <h1> Mot de passe oublié </h1>
-            <form action="includes/send.inc.php" method=POST>
-                <input type="email" name="forgot_email" placeholder="Votre email: exemple@mail.com" required>
-                <button type="submit" id="bouton-connexion" name="submit"> Recevoir mot de passe </button>    
+            <form action="#" method="POST" id="form-forgotten-pwd">
+                <input type="email" class="forgot-email" placeholder="Votre email: exemple@mail.com" required>
+                <button type="submit" id="bouton-mdp-perdu" name="submit"> Recevoir mot de passe </button>    
                 <div class="options">
                     <a href="login.php"> Connectez-vous ici ! </a>
                     <a href="signup.php"> Pas encore membre ? Inscrivez-vous ici ! </a>
                 </div>
+                <div class="message">
+                </div>
             </form>	
+            <!--
             <?php
             if (isset($_GET["error"])){
                 if ($_GET["error"] == "emailinvalide"){
@@ -33,6 +52,7 @@
                 }
             }
             ?>
+            -->
         </div>
     </div>
 </body>

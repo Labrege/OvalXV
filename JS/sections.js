@@ -42,3 +42,15 @@ function remove_exo(clicked_id)
     const exo = document.getElementById('exo-'+clicked_id);
     exo.parentNode.removeChild(exo);
 }
+
+
+function pwdLength($pwd){
+    $result;
+    if (strlen($pwd) >= 8) {
+        $result = true;
+    }
+    else{
+        $result = false;
+    }
+    return $result;
+}

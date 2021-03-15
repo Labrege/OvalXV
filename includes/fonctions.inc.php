@@ -5,6 +5,7 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
     require '../vendor/autoload.php';
+    $signup = false;
 
 
 // Sign up functions
@@ -52,6 +53,17 @@ function pwdMatch($pwd, $pwdrepeat){
     return $result;
 }
 
+function pwdLength($pwd){
+    $result;
+    if (strlen($pwd) < 8) {
+        $result = true;
+    }
+    else{
+        $result = false;
+    }
+    return $result;
+}
+
 function uidExists($conn, $username, $email){
     $sql = "SELECT * FROM users WHERE userUid = ? OR userEmail =?;";
     $stmt = mysqli_stmt_init($conn);
@@ -81,7 +93,8 @@ function createUser($conn, $name, $surname, $email, $username, $pwd){
     $sql = "INSERT INTO users (userName, userSurname, userEmail, userUid, userPwd, regDate) VALUES (?,?,?,?,?, NOW());";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signup.php?error=stmtfailed");
+        echo "<span class='error_message'> Une erreur est survenue ! Veuillez réessayer. </span>";
+        //header("location: ../signup.php?error=stmtfailed");
         exit();
     }
 
@@ -90,7 +103,19 @@ function createUser($conn, $name, $surname, $email, $username, $pwd){
     mysqli_stmt_bind_param($stmt, "sssss", $name, $surname, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../signup.php?error=none");
+    echo "<span class='error_message' style='color: rgb(50,205,50);'> Votre inscription a bien été validée ! </br></br> Afin de finaliser votre inscription, veuillez cliquer sur le lien envoyé par mail. </span>";
+    //header("location: ../signup.php?error=none");
+    ?>
+    <script>
+        console.log("true");
+        $(".name").val("");
+        $(".surname").val("");
+        $(".email").val("");
+        $(".username").val("");
+        $(".pwd").val("");
+        $(".pwdrepeat").val("");
+    </script>
+    <?php
     exit();
 }
 
@@ -138,10 +163,13 @@ function loginUser($conn, $username, $pwd){
 
 //mail
 function sendMail($conn, $email, $password, $ePassword){
-    $uidExists = uidExists($conn, $email, $email);
 
+    $result;
+
+    $uidExists = uidExists($conn, $email, $email);
     if ($uidExists === false){
-        header("location: ../mot_de_passe.php?error=emailinvalide");
+        //header("location: ../mot_de_passe.php?error=emailinvalide");
+        echo "<span class='error-message'> L'addresse email saisie n'est rattachée à aucun compte ! </span>";
         exit();
     }
 
@@ -152,7 +180,7 @@ function sendMail($conn, $email, $password, $ePassword){
         $sql=$conn->query("UPDATE users SET userPwd ='$ePassword' WHERE userEmail='$email'");
         try {
             //Server settings
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host       = 'smtp.hostinger.fr';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
@@ -182,24 +210,27 @@ function sendMail($conn, $email, $password, $ePassword){
             $mail->AltBody = strip_tags($body);
     
             if ($mail->send()){
-                echo"<script language='javascript'>
+                echo "<span class='error-message'> Mail envoyé ! </span>";
+                exit();
+                /*echo "<script language='javascript'>
                     var newLocation = '../mot_de_passe.php?error=none';
                     window.location = newLocation;
                 </script>
-                ";
+                ";*/
             }
             else{
-                echo"<script language='javascript'>
+                echo "<span class='error-message'> Problème ! </span>";
+                exit();
+                /*echo"<script language='javascript'>
                     var newLocation = '../mot_de_passe.php?error=mailnonenvoyé';
                     window.location = newLocation;
                 </script>
-                ";
+                ";*/
             }
         } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {
-            $mail->ErrorInfo
-        }";
+            echo "Message could not be sent. Mailer Error: {
+                $mail->ErrorInfo
+            }";
         }
-    
     }
 }
