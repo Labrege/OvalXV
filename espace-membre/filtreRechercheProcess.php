@@ -57,7 +57,6 @@ if (isset($_POST['submit'])){
             $search .= ' TagFamille LIKE "' .$v.'"';
             $search.= ' OR ';
         }
-
         $search = substr($search,0,-4);
     }
 
@@ -74,7 +73,6 @@ if (isset($_POST['submit'])){
         }
 
         $search = substr($search,0,-3);
-
     }
 
     if (!empty($search)){
@@ -116,7 +114,7 @@ if (isset($_POST['submit'])){
                 }
             ?>   
                 <!-- Affichage des Videos -->
-                <video width="100%" height="auto" preload="auto" controlsList="nodownload" oncontextmenu="return false;"
+                <video width="100%" height="auto" preload="metadata" controlsList="nodownload" oncontextmenu="return false;"
         
                     <?php 
                     // Si le statut membre n'est pas premium
@@ -127,7 +125,7 @@ if (isset($_POST['submit'])){
                         }
                         // Si le statut de la video n'est pas "visible" -> bloquer la video
                         else{
-                            echo "poster='../Images/TN/tn premium.PNG'";
+                            echo "poster='../Images/TN/tn premium.png'";
                         }
                     }
                     // Si le statut membre est premium -> Lecture de toutes les vidéos
@@ -136,7 +134,9 @@ if (isset($_POST['submit'])){
                     }
                     ?>
                 >
-                <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
+                    <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4">
+                    <img src="../Images/TN/tn premium.png">
+                </video>
                 <?php
                 if($displayHeart==True){
                 ?>
@@ -148,14 +148,20 @@ if (isset($_POST['submit'])){
                 <?php
                 }
                 ?>
+                <div class="tags-video">
+                    <div class="tag-famille">
+                        <?php echo $donnees["TagFamille"]; ?> 
+                    </div>
+                    <div class="tag-video">
+                        <?php echo $donnees["TagVideo"]; ?> 
+                    </div>
+                </div>
             </div>
             <?php
             }  
     }
     else{
-         echo "Aucune vidéo ne répond aux critères recherchés";
-         echo "<br>";
-         echo "<br>";    
+         echo "<div class='recherche-fail'>Désolé... Aucune vidéo ne répond aux critères recherchés <div>";   
     }
 }
 ?>

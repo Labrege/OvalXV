@@ -25,7 +25,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     <script>
         $(document).ready(function(){
             //Button ajouter aux favoris de la page: espace_membre.php
@@ -67,6 +66,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
                 }).fail(function(xhr, textStatus, errorThrown){
                     alert(xhr.responseText);
                 });
+            });
+            $(".message").click(function(){
+                $(".message").empty();
             });
         });
     </script>

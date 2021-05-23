@@ -3,7 +3,7 @@
 if (isset($_POST["submit"])){
 
     $username = $_POST["name"];
-    $pwd = $_POST["pwd"];
+    $pwd = trim($_POST["pwd"]);
 
     require_once 'dbh.inc.php';
     require_once 'fonctions.inc.php';

@@ -7,7 +7,6 @@ $uid = $_SESSION["useruid"];
 $sqlFavoris = $conn->query("SELECT * FROM favoris WHERE idCreateur = '$uid'");
     //Affichage des données
 ?>
-
 <div class="titre-offres">
     <h2> Favoris </h2>
 </div>
@@ -28,10 +27,10 @@ if($_SESSION['plan']==0){
 <?php
 
 }else{
-    while ($donneesFavoris = $sqlFavoris->fetch_assoc()){
-
-        $videoId = $donneesFavoris["idVideo"];
-        $sqlVideo = $conn->query("SELECT * FROM video WHERE id='$videoId'");
+    if(mysqli_num_rows($sqlFavoris)>0){
+        while ($donneesFavoris = $sqlFavoris->fetch_assoc()){
+            $videoId = $donneesFavoris["idVideo"];
+            $sqlVideo = $conn->query("SELECT * FROM video WHERE id='$videoId'");
             while ($donnees = $sqlVideo->fetch_assoc()){
             ?>
             <div class="favoris-card" id="favoris-container<?php echo $donnees["id"]; ?>">               
@@ -44,12 +43,31 @@ if($_SESSION['plan']==0){
                     <!-- Ajout du bouton favoris -->
                         <button style="width: 25px; height: 25px;" class="btnDeleteFavorites" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites">  <i class="fa fa-trash" ariria-hidden="true"></i> </button>
                     </div>
+                    <div class="tags-video">
+                        <div class="tag-famille">
+                            <?php echo $donnees["TagFamille"]; ?> 
+                        </div>
+                        <div class="tag-video">
+                            <?php echo $donnees["TagVideo"]; ?> 
+                        </div>
+                    </div>
             </div>
             <?php
             }
-            ?> 
-<?php
+        }
+    }else{
+        ?>
+        <div class="texte-favoris">
+        <h3> Vous n'avez aucune vidéo enregistré dans vos favoris </h3>
+        <h3><a href="../espace-membre/espace_membre.php"> Trouver vos vidéos ici </a></h3>
+    </div>
+    <?php
+        
     }
 }
 ?>
 </div>
+
+<?php
+require('espace_membre_footer.php');
+?>

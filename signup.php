@@ -29,6 +29,9 @@
                      submit: submit
                 });
             });
+            $(".message").click(function(){
+                $(".message").empty();
+            });
         });
    </script>
 </head>
@@ -36,10 +39,19 @@
     <div class="container">
         <div class="formulaire">
             <h1> ESPACE INSCRIPTION </h1>
+            <div class="message">
+                    <?php
+                        if (isset($_GET["error"])){
+                            if ($_GET["error"] == "startnow"){
+                                echo "<span class='success_message'> Créez un compte pour commencer à utiliser la plateforme OvalXV ! <div class='exit-message'>&times;</div> </span>";
+                            }
+                        }
+                    ?>
+            </div>
             <form action="#" method=POST id="form-signup">
                 <input type="text" name="name" class="name" placeholder="Prenom" >
                 <input type="text" name="surname" class="surname" placeholder="Nom">
-                <input type="text" name="username" class="username" placeholder="Username...">
+                <input type="text" name="username" class="username" placeholder="Nom d'utilisateur">
                 <input type="email" name="email" class="email" placeholder="email@exemple.com">
                 <input type="password" name="pwd" class="pwd" placeholder="Mot de Passe" >
                 <input type="password" name="pwdrepeat" class="pwdrepeat" placeholder="Verification mot de Passe" >
@@ -50,12 +62,8 @@
                     <a href="login.php"> Déja inscrit? Connectez-vous ici ! </a>
                 </div>
             </form>
-            <div class="message">
-            </div>
         </div>
     </div>
 </body>
 </html>
-
-
     

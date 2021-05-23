@@ -111,11 +111,6 @@ form input:focus{
     transform: translate(-50%,-50%);
 }
 
-.error-message{
-    margin-top: 20px;
-    color: tomato;
-}
-
 #bouton-connexion{
     margin-bottom: 15px;
     width: 200px;
@@ -140,7 +135,6 @@ form input:focus{
 }
 
 .show-password{
-    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -156,6 +150,37 @@ form input:focus{
     margin-left: 0px;
 }
 
+/*Messages d'erreurs*/
+
+.message{
+    margin-bottom: 10px;
+}
+
+.error_message_login{
+    background: lightpink; 
+    width: 300px; 
+    text-align: center; 
+    color: white; 
+    padding: 10px;  
+    border-radius: 5px; 
+    color: black; 
+    border: red 1px solid;
+}
+
+.success_message_login{
+    transform: translateX(-50%);
+    background: #d2f8d2;
+    width: 300px; 
+    text-align: center; 
+    color: white; 
+    padding: 10px; 
+    margin: 10px; 
+    border-radius: 5px; 
+    color: black; 
+    border: green 1px solid;
+    z-index: 1000;
+}
+
 @media screen and (max-width: 768px){
     *{
         font-size: 8px;
@@ -169,4 +194,7 @@ form input:focus{
         font-size: 2rem;
     }
 
+    .success_message, .error_message{
+        width: 200px;
+    }
 }

@@ -5,30 +5,47 @@ require_once '../includes/dbh.inc.php';
 $user = $_SESSION["useruid"];
 
 $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
-
 ?>
 
+<script>
+    $(document).ready(function(){ 
+        var messageDelete = false;
+        $("#form-informations").submit(function(event){
+            event.preventDefault();
+            var firstname = $("#firstname").val();
+            var lastname = $("#lastname").val();
+            var email = $("#email").val();
+            var birthdate = $("#birthdate").val();
+            var club = $("#club").val();
+            var motdepasse = $("#motdepasse").val();
+            var submit = $("#button-information").val();
+            
+            $(".message").load("../espace-membre/informationUpdateProcess.php", {
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    birthdate: birthdate,
+                    club: club,
+                    motdepasse: motdepasse,
+                    submit: submit
+            });
+            
+        });
+        });
+</script>
+
+<div class="message"></div>
+
 <div class=container_information>
+
 
 <div class="titre-offres">
     <h2> Mes informations </h2>
 </div>
-<!--
-<?php echo $_SESSION["useruid"]; ?> </br></br>
-<?php echo $_SESSION["username"]; ?> </br></br>
-<?php echo $_SESSION["usersurname"]; ?> </br></br>
-<?php echo $_SESSION["useremail"]; ?> </br></br>
 
-<h2> Modifier mon mot de passe </h2>
 
-<form action="../espace-membre/compte/compteProcess.php" method="POST">
-    <input type="password" placeholder="Nouveau mot de Passe" name="pwd">
-    <input type="password" placeholder="Confirmation" name="pwdrepeat">
-    <button type="submit" name="submit"> Changer mon mot de passe </button>
-</form>
--->
 <div class="formulaire-information">
-    <form>
+    <form action='#' method='POST' id="form-informations">
         <div class="user-form">
             <div class="ligne ">
                 <label class="material-input__label" for="firstname">Prénom</label>
@@ -46,46 +63,31 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 
             <div class="ligne ">
                 <label class="material-input__label" for="email">Email</label>
-                <input name="email" class="material-input__input" type="text" id="email" placeholder="John" value=<?php echo $_SESSION["useremail"]; ?>>
+                <input name="email" class="material-input__input" type="text" id="email" placeholder="John@example.com" value=<?php echo $_SESSION["useremail"]; ?>>
             </div>
 
             <div class="ligne ">
                 <label class="material-input__label" for="firstname">Date de naissance</label>
-                <input name="birthdate" class="material-input__input" type="date" id="birthdate" placeholder="DD/MM/YY">
+                <input name="birthdate" class="material-input__input" type="date" id="birthdate" placeholder="DD/MM/YY" value="<?php echo $_SESSION["userbirthdate"]; ?>">
             </div>
 
             <div class="ligne ">
                 <label class="material-input__label" for="Club">Club </label>
-                <input name="Club" class="material-input__input" type="text" id="Club" placeholder="OvalXV" value=>
+                <input name="club" class="material-input__input" type="text" id="club" placeholder="OvalXV" value="<?php echo $_SESSION["userclub"]; ?>">
             </div>
 
             <div class="ligne ">
                 <label class="material-input__label" for="motdepasse">mot de passe  </label>
-                <input name="motdepasse" class="material-input__input" type="text" id="motdepasse" placeholder="*******" value=>
+                <input name="motdepasse" class="material-input__input" type="password" id="motdepasse" placeholder="*******">
             </div>
         </div>
 
         <div class="form-valider">
-            <input type="submit" disabled="" class="button-valide"name="valider" value="Mettre à jour">
+            <input type="submit" class="button-valide" id="button-information" name="valider" value="submit">
         </div>
     </form>
-    
+</div>
+</div>
 
-
-</div>
-</div>
-<div class="ligne ">
-    <?php
-        if(isset($_POST['envoi'])){ // si formulaire soumis
-        ;
-        echo $_POST['lastname'];
-        echo $_POST['useruid'];
-        echo $_POST['email'];
-        echo $_POST['birthdate'];
-        echo $_POST['Club'];
-        echo $_POST['motdepasse'];
-        }
-    ?>
-</div>
 
 

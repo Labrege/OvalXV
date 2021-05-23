@@ -1,7 +1,5 @@
 <?php
-
 require_once '../espace-membre/espace_membre_header.php';
-
 ?>
 <div class="entrainement-page-container">
 
