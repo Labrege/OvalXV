@@ -85,7 +85,7 @@ if($stripeCancel){
             $mail->ErrorInfo
         }";
         }
-        header("Location: ../espace_membre_abonnement.php?error=subscriptioncanceled&endsub=$datemail");
+        header("Location: ../espace_membre_abonnement.php?error=subscriptioncanceled&endsub=$endSubDate");
         }
 }
 else{

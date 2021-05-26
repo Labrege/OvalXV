@@ -40,6 +40,7 @@ $stripe = new \Stripe\StripeClient(
 $pid = $_GET['pid']; //Numéro du produit STRIPE (1 ou 2)
 $token  = $_POST['stripeToken']; //Token STRIPE renvoyé automatiquement par le formulaire de CB
 $email  = $_SESSION['useremail']; //email du compte qui prend l'abonnement
+$name = $_SESSION['username'];
 
 //mensuel ou annuel
 if($pid == 1){
@@ -50,10 +51,11 @@ elseif($pid ==2){
 }
 //si le client n'a pas d'abonnement stripe
 if($_SESSION["plan"]==0){
-  //Creation d'un nouveau client Stripe
+  //Creation d'un nouveau client Stripe // 'shipping' => ['address' => ['line1' =>'28 rue jacques Baudry', 'country'=>'France'],'name'=>'test']
   $customer = \Stripe\Customer::create([
     'email' => $email,
     'source'  => $token,
+    'name' => $name
   ]);
 
   //Création d'un abonnement STRIPE

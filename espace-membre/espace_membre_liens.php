@@ -16,7 +16,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/OvaleXV/includes/dbh.inc.php');
     <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-entrainement.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-informations.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-abonnement.css?v=<?php echo time(); ?>">
-
+    <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-paiements.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="Text/css" href="../CSS/membre/espacemembre-annulerabonnement.css?v=<?php echo time(); ?>">
     <!-- JavaScript file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     

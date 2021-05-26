@@ -99,7 +99,7 @@ function createUser($conn, $name, $surname, $email, $username, $pwd){
     }
     
 
-    $codeverif = "azertyuiopqsdfghjklmwxcvbnABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    $codeverif = "azertyuiopqsdfghjklmwxcvbn";
     $codeverif = str_shuffle($codeverif);
     $codeverif = strtoupper(substr($codeverif, 0, 8));
     $ecodeverif = password_hash($codeverif, PASSWORD_BCRYPT);

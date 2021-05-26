@@ -206,8 +206,9 @@
 }
 
 .product .itemBox{
-    width: 350px;
+    width: 349px;
     margin: 1%;
+    border-radius: 10px;
     background: none;
     display: flex;
     flex-direction: column;
@@ -219,6 +220,12 @@
 
 .product .itemBox img{
     width: 90%;
+}
+
+.product .itemBox video{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
 }
 
 .product .recherche-fail{

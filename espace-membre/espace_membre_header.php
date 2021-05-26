@@ -79,8 +79,12 @@ if($_SESSION["endsub"]!== "0000-00-00"){
             if ($_SESSION["plan"]==0) {
                 echo "Gratuit";
             }
-            elseif ($_SESSION["plan"]==1 || $_SESSION["plan"]==2){
-                echo "Premium";
+            elseif ($_SESSION["plan"]==1){
+                echo "Stagiaire";
+            }
+
+            elseif ($_SESSION["plan"]==2){
+                echo "Titulaire";
             }
 
             elseif ($_SESSION["plan"]== 3){

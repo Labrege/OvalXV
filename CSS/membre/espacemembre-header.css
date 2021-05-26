@@ -80,11 +80,12 @@ video::-webkit-media-controls-enclosure {
 }
 
 .page .active{
-    color: lightsalmon;
+    color: #FFFAE5;
+    text-shadow: 0px 0px 10px salmon;
 }
 
 .page .active h2{
-    color: lightsalmon;
+    font-size: 16px;
 }
 
 .logo-container{
@@ -213,6 +214,7 @@ video::-webkit-media-controls-enclosure {
     .footer{
         display: flex;
         justify-content: center;
+        margin-top: 40px;
     }
 
     .footer h2{

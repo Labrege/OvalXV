@@ -40,7 +40,7 @@ $sql = $conn->query("SELECT * FROM users WHERE userUid = '$user");
 
 
 <div class="titre-offres">
-    <h2> Mes informations </h2>
+    <h2> Informations </h2>
 </div>
 
 

@@ -1,9 +1,17 @@
+
 <?php
 require_once '../espace-membre/espace_membre_header.php';
 require_once '../includes/dbh.inc.php';
+?>
+<div class="container-paiements">
+    <div class="titre-offres">
+        <h2> Vos Paiements</h2>
+    </div>
+<?php
 
 //Variables
 $numTrans = 1;
+//Si utilisateur a un compte stripe
 if(!empty($_SESSION["stripeid"])){
     $custId = $_SESSION["stripeid"];
 
@@ -26,8 +34,6 @@ if(!empty($_SESSION["stripeid"])){
         $custId,
         []
     );
-
-
     //echo $nextPayement;
     if($_SESSION["endsub"] == "0000-00-00"){
         $nextPayement = $stripe->invoices->upcoming([
@@ -45,62 +51,66 @@ if(!empty($_SESSION["stripeid"])){
         $NextAmountDue = 0000;
         $title = "Annulation de l'abonnement";
     }
+}
+?>
+<!-- Tableau Recap paiements -->
+<table class="table-paiements">
+        <tr>
+            <th> N° </th>
+            <th> Date </th>
+            <th> Description </th>
+            <th> Montant </th>
+            <th> Statut </th>
+            <th> Reçu </th>
+        </tr>
 
-    ?>
-    <!-- Tableau Recap paiements -->
-    <table>
-            <tr>
-                <th> N° </th>
-                <th> Date </th>
-                <th> Description </th>
-                <th> Montant </th>
-                <th> Statut </th>
-                <th> Reçu </th>
-            </tr>
-
-            <tr>
-                <th> <?php echo $numTrans;?></th>
-                <th> <?php echo date('d/m/Y', strtotime($_SESSION['regdate']));?> </th>
-                <th> Ouverture du compte OvalXV </th>
-                <th> 0,00€ </th>
-                <th> Payé </th>
-                <th>  </th>
-            </tr>
-    <?php
-    //Charges
+        <tr>
+            <td> <?php echo $numTrans;?></td>
+            <td> <?php echo date('d/m/Y', strtotime($_SESSION['regdate']));?> </td>
+            <td> Ouverture du compte OvalXV </td>
+            <td> 0,00€ </td>
+            <td> Payé </td>
+            <td>  </td>
+        </tr>
+<?php
+if(!empty($_SESSION["stripeid"])){
+        //Charges
     $charges = $stripe->charges->all(['customer' => $custId]);
     $totalCharges = count($charges['data']);
     foreach (range($totalCharges-1, 0) as $chargesLen){
         $numTrans+=1;
         ?>
             <tr>
-                <th> <?php echo $numTrans;?></th>
-                <th> <?php echo date('d/m/Y',$charges['data'][$chargesLen]['created']);?></th>
-                <th> <?php echo $charges['data'][$chargesLen]['description'];?> </th>
-                <th> <?php echo number_format($charges['data'][$chargesLen]['amount_captured']/100,2, '.', '');?> €</th>
-                <th> <?php if($charges['data'][$chargesLen]['captured'] == 1){
+                <td> <?php echo $numTrans;?></td>
+                <td> <?php echo date('d/m/Y',$charges['data'][$chargesLen]['created']);?></td>
+                <td> <?php echo $charges['data'][$chargesLen]['description'];?> </td>
+                <td> <?php echo number_format($charges['data'][$chargesLen]['amount_captured']/100,2, '.', '');?> €</td>
+                <td> <?php if($charges['data'][$chargesLen]['captured'] == 1){
                     echo "Payé";
                 }
                 elseif ($charges['data'][$chargesLen]['captured'] == 0) {
                     echo "Non payé";
-                }?> </th>
-                <th> <i class="fa fa-envelope" aria-hidden="true"></i> </th>
+                }?> </td>
+                <td> <i class="fa fa-envelope" aria-hidden="true"></i> </td>
             </tr>
             <?php
-    }
+        }
     ?>
         <tr>
-            <th> <?php echo $numTrans+1;?></th>
-            <th> <?php echo date('d/m/Y', strtotime($nextPayementDate));?> </th>
-            <th>  <?php echo $title;?></th>
-            <th> <?php echo number_format($NextAmountDue/100,2, '.', '');?> €</p></th>
-            <th> En attente </p></th>
-            <th title="Reçu pas encore disponible pour cette échéance"> <i class="fa fa-envelope" aria-hidden="true"></i> </p></th>
+            <td> <?php echo $numTrans+1;?></td>
+            <td> <?php echo date('d/m/Y', strtotime($nextPayementDate));?> </td>
+            <td>  <?php echo $title;?></td>
+            <td> <?php echo number_format($NextAmountDue/100,2, '.', '');?> €</td>
+            <td> En attente</td>
+            <td title="Reçu pas encore disponible pour cette échéance"> <i class="fa fa-envelope" aria-hidden="true"></i> </p></td>
 
         </tr>
-    </table>
-
-    <p> Votre Abonnement actuel : 
+<?php
+}
+?>
+</table>
+<div class="recap-abonnement">
+    <p> <b>Votre Abonnement actuel : </b>
     <?php 
     if ($_SESSION["plan"]==0) {
         echo 'Abonnement Gratuit';
@@ -113,16 +123,16 @@ if(!empty($_SESSION["stripeid"])){
     }
     ?></p>
 
-    <p>Début de votre abonnement premium: <?php echo date('d/m/Y', strtotime($_SESSION['startsub']));?></p>
-    <p>Fin de votre abonnement : <?php 
+    <p> <b> Début de votre abonnement premium: </b><?php echo date('d/m/Y', strtotime($_SESSION['startsub']));?></p>
+    <p> <b> Fin de votre abonnement : </b><?php 
     if($_SESSION['endsub'] !== "0000-00-00"){
         echo  date('d/m/Y', strtotime($_SESSION['endsub']));
     }else{
         echo "Pas d'annulation prévue";
     } ?></p>
-    <?php
-}else{
-    echo "Vous n'avez pas de paiements";
-}
-?>
+</div>
 
+</div>
+<?php
+require('espace_membre_footer.php');
+?>

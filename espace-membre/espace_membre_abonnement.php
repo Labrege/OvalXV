@@ -15,7 +15,7 @@ require_once '../espace-membre/espace_membre_header.php';
         }
         ?>><!-- abonement gratuit-->
             <div class="titre">
-                   <h3>Essai</h3>
+                   <h3> Stagiaire </h3>
                    <img src="../Images/icons-abonement-bronze.png" alt="">
             </div>
             
@@ -33,7 +33,7 @@ require_once '../espace-membre/espace_membre_header.php';
                 <?php
                 if($_SESSION["plan"]==1){
                     ?>
-                    <h4> Abonnement est en cours </h4>
+                    <h4> Abonnement en cours </h4>
                 <?php
                 }elseif ($_SESSION["plan"] == 0){
                 ?>
@@ -62,7 +62,7 @@ require_once '../espace-membre/espace_membre_header.php';
         
         ?>><!-- abonement prenium-->
             <div class="titre">
-                   <h3>Premium</h3>
+                   <h3> Titulaire </h3>
                    <img src="../Images/icons-abonement-argent.png" alt="">
             </div>
             
@@ -80,7 +80,7 @@ require_once '../espace-membre/espace_membre_header.php';
                 <?php
                 if($_SESSION["plan"]==2){
                     ?>
-                    <h4> Abonnement est en cours </h4>
+                    <h4> Abonnement en cours </h4>
                 <?php
                 }else{
                 ?>
@@ -124,7 +124,7 @@ require_once '../espace-membre/espace_membre_header.php';
     </div>
     <div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 100px">
         <!-- Button pour annuler l'abonnement-->
-        <a href="../espace-membre/abonnement/annulation_abonnement.php" style= "font-size: 16px" title="Vous n'avez pas encore d'abonnement ! "
+        <a href="../espace-membre/espace_membre_annulation_abonnement.php" style= "font-size: 16px" title="Vous n'avez pas encore d'abonnement ! "
             <?php
             if($_SESSION["plan"]==0 || $_SESSION["endsub"]!== "0000-00-00"){
                 echo "class='unclickable' onclick='return false'";

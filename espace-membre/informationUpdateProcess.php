@@ -107,6 +107,7 @@ if (isset($_POST['submit'])) {
     } 
     
     if (!empty($firstname) && !empty($lastname) && !empty($email) && $updateOther == true ) {
+        $birthdate = date('Y-m-d', strtotime($birthdate));
         $sqlInformation = $conn->query("UPDATE users 
         SET userName = '$firstname' , userSurname = '$lastname', userEmail = '$email',  userBirthDate = '$birthdate' , userClub = '$club'
         WHERE userUid = '$useruid'");
