@@ -123,7 +123,12 @@ if(!empty($_SESSION["stripeid"])){
     }
     ?></p>
 
-    <p> <b> Début de votre abonnement premium: </b><?php echo date('d/m/Y', strtotime($_SESSION['startsub']));?></p>
+    <p> <b> Début de votre abonnement premium: </b><?php 
+    if($_SESSION['startsub'] !== "0000-00-00"){
+        echo  date('d/m/Y', strtotime($_SESSION['startsub']));
+    }else{
+        echo "Vous n'avez pas d'abonnement premium";
+    } ?></p>
     <p> <b> Fin de votre abonnement : </b><?php 
     if($_SESSION['endsub'] !== "0000-00-00"){
         echo  date('d/m/Y', strtotime($_SESSION['endsub']));
