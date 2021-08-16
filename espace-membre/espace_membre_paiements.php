@@ -16,7 +16,7 @@ if(!empty($_SESSION["stripeid"])){
     $custId = $_SESSION["stripeid"];
 
     //initiation de STRIPE
-    require_once($_SERVER['DOCUMENT_ROOT'].'/OvaleXV/vendor/autoload.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
         //Clés STRIPE
     $stripeKeys = [
         "secret_key"      => "sk_test_51HqQHPFgXh2KdvEKH1wqZ2YHmkGDnrvIBYsjXPFOx5XgtijlDm0hcDLLUqntSa7OzOC0raZIL8Z2krNk130VUKFL00vqlN7izh",
