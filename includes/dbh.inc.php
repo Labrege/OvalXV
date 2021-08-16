@@ -1,4 +1,5 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
 $servername = "localhost";
 $dbusername = "u519972031_solal";
 $dbpassword = "OvalXV75016";
