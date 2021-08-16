@@ -1,5 +1,5 @@
 <?php
-/*require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
 $servername = "localhost";
 $dbusername = "u519972031_solal";
 $dbpassword = "OvalXV75016";
@@ -10,8 +10,7 @@ $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 if(!$conn){
     die("Connection failed: ". mysqli_connect_error());
 }
-*/
-
+/*
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
