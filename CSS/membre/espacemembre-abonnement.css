@@ -1,0 +1,186 @@
+#espace_membre_abonnement
+{
+    background-color: #FFFAE5;
+    width: 100%;
+    height: 100%;
+}
+
+.titre-offres {
+    padding-top: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titre-offres h2{
+    color: white;
+    background-color: salmon;
+    clip-path: polygon(0 0, 100% 10%, 100% 85%, 5% 100%);
+    font-size: 2.5rem;
+    margin: 20px;
+    margin-bottom: 3%;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.offre_abonement_global
+{
+    width:100%;
+    height: 60%;
+   
+}
+
+.level_plan{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.plan_abonnement{
+    border: 3px  solid;
+    border-color: white;
+    border-radius: 30px;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center ;
+    margin-bottom: 10em;
+    background-color: #10222e;
+    color: #FFFAE5;
+}
+/*#8FAADC*/
+/*
+.plan_abonnement:nth-child(1){
+    background-color: #8FAADC;
+}
+*/
+.titre{
+    display: flex;
+    justify-content: space-around;
+    align-items: unset;
+    height: 18%;
+    width:100%;
+    
+}
+
+.titre h3{
+    font-size: 2em;
+}
+
+.titre img{
+    height: 60%;
+
+}
+
+
+.liste_contenu_plan li{
+    list-style: none;
+    margin-bottom: 5%;
+    display: flex;
+}
+
+.liste_contenu_plan li img{
+    height: 12%;
+    width:12%;
+}
+.liste_contenu_plan li p{
+    margin-left: 5%;
+}
+
+.boite-bouton-valider{
+    height:3em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.boite-bouton-valider form{
+    width: 100%;
+    text-align: center;
+}
+
+.bouton_valider_reverse{
+    align-items: center ;
+    border: 2px solid white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #10222e;
+    color: #FFFAE5;
+    padding: auto;
+    margin-top: 10%;
+    outline: none;
+}
+
+.bouton_valider_reverse:hover{
+    background-color:#FFFAE5;
+    color:#10222e;
+    border: 2px solid #10222e;
+}
+
+.bouton_valider_reverse_sans_fond{
+    align-items: center ;
+    border: 2px solid #10222e;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #FFFAE5;
+    color: #10222e;
+    padding: auto;
+    margin-top: 10%;
+    outline: none;
+}
+
+.bouton_valider_reverse_sans_fond:hover{
+    background-color:#10222e;
+    color:#FFFAE5;
+}
+
+.bouton_valider{
+    align-items: center ;
+    border: 1px solid white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #FFFAE5;
+    color: #10222e;
+    padding: auto;
+    margin-top: 10%;
+    outline: none;
+}
+
+.bouton_valider:hover{
+    background-color:#10222e;
+    color:#FFFAE5;
+}
+
+.bouton_valider:focus{
+    outline:none;
+}
+
+
+.hidden{
+    visibility: hidden;
+}
+
+
+.prix_par_mois{
+    font-size: 1.5em;
+    margin-left: 10%;
+    
+}
+
+.prix_par_an{
+    font-size: 1em;
+    margin-bottom: 10%;
+    margin-left:20%;
+}
+
+@media screen and (max-width: 768px){
+    .titre-offres h2{
+        font-size: 2.1rem;
+    }
+}

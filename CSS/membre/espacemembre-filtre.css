@@ -1,32 +1,195 @@
 /*Fitres*/
-#filtres{
+.formCheckbox-container{
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.form-filtre{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
 }
 
-#filtres ul{
-    margin-top: 20px;
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.filtres-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.checkbox-effectif{
+    flex: 1;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 50px;
+    width: 80%;
+    margin-bottom: 30px;
 }
 
-#filtres ul li{
-    list-style: none;
-    background-color: #FFFAE5;
-    color: #10222e;
-    padding: 6px;
-    margin: 10px;
-    letter-spacing: 1px;
+.checkbox-effectif h1{
+    font-size: 1.2rem;
+    visibility: hidden;
+}
+
+.checkbox-complement{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+}
+
+
+.checkbox-tag-container-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.checkbox-tag-container{
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    margin: 5px;
+}
+
+.checkbox-tag-container h1{
+   font-size: 1.2rem;
+   text-decoration: underline;
+}
+
+.tag{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 2px;
+    padding: 2px;
+    width: 100%;
+}
+
+
+.tag-titre{
+    color: black;
+    font-size: 1rem;
+    margin: 5px;
+}
+
+.tags-video{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7px;
+}
+
+.tag-famille, .tag-video{
+    font-size: 0.9em;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    text-transform: capitalize;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.tag-famille{
+    background: #d2f8d2; 
+    border: green 1px solid;
+}
+
+.tag-video{
+    background: lightblue; 
+    border: darkblue 1px solid;
+}
+
+/*Toggle*/
+.switch {
+    position: relative;
+    display: inline-block;
+    min-width: 50px;
+    height: 28px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
     cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 21.5px;
+    width: 21.5px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #10222e;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #10222e;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/*slider filtres*/
+.filtres-toggle-btn{
+    font-size: 50px;
+    width: 70%;
 }
 
-#filtres ul li.active{
+.fa-sliders-active{
     background-color: #10222e;
     color: #FFFAE5;
+    margin: 5px;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.fa-sliders:hover{
+    cursor: pointer;
 }
 
 /*Videos*/
@@ -38,25 +201,181 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 70px;
+    margin-bottom: 50px;
 }
 
 .product .itemBox{
-    width: 350px;
+    width: 349px;
     margin: 1%;
-}
-
-.product .itemBox{
+    border-radius: 10px;
+    background: none;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
+    border: none;
+    box-shadow: 0 0 2px black;
+    position: relative;
 }
 
 .product .itemBox img{
     width: 90%;
 }
-/*Partie Admin*/
 
+.product .itemBox video{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+}
+
+.product .recherche-fail{
+    font-size: 1.2rem;
+}
+
+/* Button container */
+.btnFavorite-container{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/*Bouton favoris*/
+.btnFavorites{
+    background: none;
+    font-size: 2rem;
+    border: none;
+    color: darkgray;
+    margin: 5px;
+}
+
+.btnFavorites:hover{
+    color: lightcoral;
+    cursor: pointer;
+}
+
+.btnFavorites:focus{
+    outline: none;
+}
+
+.heart{
+    animation: heart 0.5s linear;
+}
+
+.heart i.fa-heart{
+    color: red;
+}
+
+/*Partie telephone*/
+@media screen and (max-width: 980px){
+    .product .itemBox{
+        max-width: 90%;
+    }
+
+    .checkbox-tag-container:nth-child(1){
+        margin-right: 10px;
+    }
+
+    .filtres-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .checkbox-effectif{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .checkbox-complement{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkbox-tag-container-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .checkbox-tag-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/*Partie telephone*/
 @media screen and (max-width: 768px){
     .product .itemBox{
         max-width: 90%;
+    }
+
+    .checkbox-tag-container:nth-child(1){
+        margin-right: 10px;
+    }
+
+    .filtres-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+    }
+
+    .checkbox-effectif{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .checkbox-complement{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkbox-tag-container-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtres-toggle-btn{
+        font-size: 40px;
+        width: 90%;
+    }
+}
+
+@keyframes heart{
+    0%{
+        transform: rotate(0deg) scale(1.7);
+    }
+
+    40%{
+        transform: rotate(0deg) scale(1);
+    }
+
+    41%{
+        transform: rotate(360deg) scale(1);
+    }
+
+    100%{
+        transform: rotate(0deg) scale(1);
     }
 }
 

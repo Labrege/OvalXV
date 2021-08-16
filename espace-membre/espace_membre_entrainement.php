@@ -1,27 +1,53 @@
 <?php
-
 require_once '../espace-membre/espace_membre_header.php';
-
 ?>
-<!-- Large modal -->
-<!-- Modal Button -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"> Rajouter un entrainement </button>
+<div class="entrainement-page-container">
 
+  <div class="entrainement-titre-container">
+    <h1> Saison 2020/2021 </h1>
+  </div>
 
-<!-- Modal fond -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <?php
-        require_once('../espace-membre/entrainement/ajoutEntrainementPage.php');
-        ?>
+  <div class="liste-entrainement-container">
+    <table class="tableau-entrainement">
+      <tr class="tableau-entrainement-colones">
+        <td> Date </td>
+        <td> Titre </td>
+        <td> Thème </td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <?php
+      $reponse = $conn->query('SELECT * FROM entrainements ORDER BY dateEntrainement DESC');
+
+      while ($donnees = $reponse->fetch_assoc()){
+      ?>
+      <tr>
+        <td> <?php echo $donnees['titreEntrainement'] ; ?> </td>
+        <td> <?php echo $donnees['dateEntrainement'] ; ?> </td>
+        <td> <?php echo $donnees['themeEntrainement'] ; ?> </td>
+        <td> <i class="fa fa-trash" aria-hidden="true"></i></td>
+        <td> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+      </tr>
+      <?php
+      }
+      ?>
+    </table>
+  </div>
+
+  <div class="button-entrainement-container">
+    <!-- Modal Button -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"> Rajouter un entrainement </button>
+  </div>
+
+  <!-- Modal fond -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <?php
+            require '../espace-membre/entrainement/ajoutEntrainementPage.php';
+          ?>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- Bootstrap -->    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-

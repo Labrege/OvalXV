@@ -30,7 +30,7 @@ img{
 }
 .formulaire{
     height: 80%;
-    width: 50%;
+    width: 50%; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,6 +63,11 @@ form input{
     border: none;
     border-radius: 80px;
 }
+
+form input:focus{
+    outline: none;
+}
+
 
 .input-password{
     margin-bottom: 0px;
@@ -106,11 +111,6 @@ form input{
     transform: translate(-50%,-50%);
 }
 
-.error-message{
-    margin-top: 20px;
-    color: tomato;
-}
-
 #bouton-connexion{
     margin-bottom: 15px;
     width: 200px;
@@ -122,6 +122,7 @@ form input{
     background-color: #10222e;
 }
 
+
 #bouton-connexion:hover{
     background-color: #FFFAE5;
     color: #10222e;
@@ -129,8 +130,11 @@ form input{
     cursor: pointer;
 }
 
+#bouton-connexion:focus{
+    outline:none;
+}
+
 .show-password{
-    width: 500px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -146,6 +150,37 @@ form input{
     margin-left: 0px;
 }
 
+/*Messages d'erreurs*/
+
+.message{
+    margin-bottom: 10px;
+}
+
+.error_message_login{
+    background: lightpink; 
+    width: 300px; 
+    text-align: center; 
+    color: white; 
+    padding: 10px;  
+    border-radius: 5px; 
+    color: black; 
+    border: red 1px solid;
+}
+
+.success_message_login{
+    transform: translateX(-50%);
+    background: #d2f8d2;
+    width: 300px; 
+    text-align: center; 
+    color: white; 
+    padding: 10px; 
+    margin: 10px; 
+    border-radius: 5px; 
+    color: black; 
+    border: green 1px solid;
+    z-index: 1000;
+}
+
 @media screen and (max-width: 768px){
     *{
         font-size: 8px;
@@ -159,4 +194,7 @@ form input{
         font-size: 2rem;
     }
 
+    .success_message, .error_message{
+        width: 200px;
+    }
 }

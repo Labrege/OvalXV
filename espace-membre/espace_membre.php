@@ -1,91 +1,225 @@
 <?php
-
 include '../espace-membre/espace_membre_header.php';
-
 //verifie la bonne connexion au compte
-if (isset($_SESSION["useruid"])){
-
-// On récupère tout le contenu de la table jeux_video
-$reponse = $conn->query('SELECT * FROM video ORDER BY StatutVideo DESC');
 ?>
+<script>
+        $(document).ready(function(){
+            //Check une seule checkbox pour les checkbox complement
+            $('.check').click(function() {
+                $('.check').not(this).prop('checked', false);
+            });
 
-<div id="message-container" style="color: red; text-align: center;">
+            window.onload = function(){
+                //renvoyer plusieurs checkbox à la recherche
+                var filtreEffectif = [];
+                $('input.checkBox:checkbox:checked').each(function () {
+                    filtreEffectif.push($(this).val());
+                });
+
+                var filtreComplement = $(".check:checked").val();
+
+                var submit = $("#btnRechercher").val();
+                
+                $(".product").load("../espace-membre/filtreRechercheProcess.php", {
+                    filtreComplement: filtreComplement,
+                    filtreEffectif: filtreEffectif,
+                    submit: submit
+                });
+            }
+
+            $("input[type='checkbox']").change(function() {
+                //renvoyer plusieurs checkbox à la recherche
+                var filtreEffectif = [];
+                $('input.checkBox:checkbox:checked').each(function () {
+                    filtreEffectif.push($(this).val());
+                });
+
+                var filtreComplement = $(".check:checked").val();
+
+                var submit = $("#btnRechercher").val();
+                
+                $(".product").load("../espace-membre/filtreRechercheProcess.php", {
+                    filtreComplement: filtreComplement,
+                    filtreEffectif: filtreEffectif,
+                    submit: submit
+                });
+            });
+
+            //Cacher ou diffuser les filtres
+            $(".filtres-toggle-btn").click(function(){
+                $(".filtres-container").toggle(250, "linear");
+                $(".filtres-toggle-btn").toggleClass("filtres-toggle-btn-active");
+                $(".fa-sliders").toggleClass("fa-sliders-active");
+            });
+        });
+    
+</script>
+<div class="rest-container">
+
+<div class="titre-offres">
+    <h2>Vidéos </h2>
 </div>
 
 
-<!-- Filtres -->
-<div id="filtres">
-    <ul>
-        <li class="list" data-filter="all"> All </li>
-        <div class="dropdown">
-            <button class="dropbtn"> Skills ▼ </button>
-            <div class="dropdown-content">
-                <li class="list" data-filter="passe"> Passe </li>
-                <li class="list" data-filter="jeu_au_pied"> Jeu au pied </li>
-                <li class="list" data-filter="ruck"> Ruck </li>
-                <li class="list" data-filter="plaquage"> Plaquage </li>
-                <li class="list" data-filter="duel_offensif"> Duel Offensif </li>
-                <li class="list" data-filter="skills"> Tous les skills </li>
+
+<div class="formCheckbox-container">
+    <form class="form-filtre" action="#" method="post">
+        <div class="filtres-toggle-btn filtres-toggle-btn-active">
+            <i class="fa fa-sliders fa-sliders-active" aria-hidden="true"></i>
+        </div>
+        <div class="filtres-container">
+            <!-- Checkbox effectif multiple -->
+                <h3> Effectif </h3>
+                <div class="checkbox-effectif">
+                <h1> Effectif </h1>
+                <div class="tag">
+                    <label class="switch">
+                        <input type="checkbox" id="complet" name="filtre-Effectif[]" value="complet" class="checkBox">
+                        <span class="slider round"></span>
+                    </label>
+                    <h2 class="tag-titre"> Complet </h2>
+                </div>
+                
+                <div class="tag">
+                    <label class="switch">
+                        <input type="checkbox" id="reduit" name="filtre-Effectif[]" value="reduit" class="checkBox">
+                        <span class="slider round"></span>
+                    </label>
+                    <h2 class="tag-titre"> Réduit </h2>
+                </div>
+                
+                <div class="tag">
+                    <label class="switch">
+                        <input type="checkbox" id="1vs1" name="filtre-Effectif[]" value="1vs1" class="checkBox">
+                        <span class="slider round"></span>
+                    </label>
+                    <h2 class="tag-titre"> 1 vs 1 </h2>
+                </div>
+
+                <div class="tag">
+                    <label class="switch">
+                        <input type="checkbox" id="1vs1" name="filtre-Effectif[]" value="spé avants" class="checkBox">
+                        <span class="slider round"></span>
+                    </label>
+                    <h2 class="tag-titre"> Spé avants </h2>
+                </div>
+
+                <div class="tag">
+                    <label class="switch">
+                        <input type="checkbox" id="1vs1" name="filtre-Effectif[]" value="spé trois-quarts" class="checkBox">
+                        <span class="slider round"></span>
+                    </label>
+                    <h2 class="tag-titre"> Spé Trois-quarts </h2>
+                </div>
             </div>
-    </ul>
-</div>
 
-<div class="form-message">
+            <!-- Checkbox effectif simple -->
+            <div class="checkbox-complement">
+                <h3> Caractéristiques </h3>
+                <div class="checkbox-tag-container-container">
+                    <div class="checkbox-tag-container">
+                        <h1> Skills </h1>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="passe" class="check" value="passe">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Passes </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="passe" class="check" value="jeu au pied">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Jeu au pied </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="ruck" class="check" value="ruck">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Ruck </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="ruck" class="check" value="plaquage">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Plaquage </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="plaquage" class="check" value="duel offensif">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Duel Offensif </h2>
+                        </div>
+                    </div>
 
+                    <div class="checkbox-tag-container">
+                        <h1> Orientation </h1>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="plaquage" class="check" value="défense">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Défense </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="plaquage" class="check" value="attaque">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Attaque </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="plaquage" class="check" value="contre-attaque">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Contre-Attaque </h2>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-tag-container">
+                        <h1> Physique </h1>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="plaquage" class="check" value="physique avec ballon">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Physique avec ballon </h2>
+                        </div>
+                        <div class="tag">
+                            <label class="switch">
+                                <input type="checkbox" name="plaquage" class="check" value="physique sans ballon">
+                                <span class="slider round"></span>
+                            </label>
+                            <h2 class="tag-titre"> Physique sans ballon </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="btnContainer" style="display: none;">
+            <button type="submit" value="Submit" id="btnRechercher" class="button-valide"> Rechercher </button>
+        </div>
+    </form>
 </div>
 
 <div class="product">
-
-<?php 
-    // On affiche chaque entrée une à une
-    while ($donnees = $reponse->fetch_assoc()){
-?>
-    <input type="hidden" id="video<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
-    <!-- Ajout du bouton favoris -->
-    <button class="btnFavorites" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites"> + </button>
-
-    <div class="itemBox <?php echo $donnees["TagVideo"]; ?> <?php echo $donnees["TagFamille"]; ?>">
-    
-        <!-- Affichage des Videos -->
-        <video width="100%" height="auto" controlsList="nodownload" oncontextmenu="return false;"
-
-            <?php 
-            // Si le statut membre n'est pas premium
-            if ($_SESSION["plan"]== 0){
-                // Si le statut de la video est "visible" -> renvoyer les controles
-                if ($donnees["StatutVideo"] == "visible"){
-                    echo "controls";
-                }
-                // Si le statut de la video n'est pas "visible" -> bloquer la video
-                else{
-                    echo "poster='../Images/TN/tn premium.PNG'";
-                }
-            }
-            // Si le statut membre est premium -> Lecture de toutes les vidéos
-            else{
-                echo "controls";
-            }
-            ?>
-        >
-        <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
-    </div>
-    <?php
-}
-?>
+    Veuillez effectuer une recherche...
+    <br>
+    <br>
 </div>
-
-
-<!-- JS pour les filtres -->    
-<script type="text/javascript" src="../JS/filtres.js"></script>
+</div>
 
 </body>
 </html>
 
-<?php 
-}
-
-//Si mauvaise connexion - Retour à la page login
-else{
-    header("location: ../login.php");
-}
+<?php
+include '../espace-membre/espace_membre_footer.php';
 ?>
+

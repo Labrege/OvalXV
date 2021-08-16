@@ -1,36 +1,73 @@
 <?php
 require_once '../espace-membre/espace_membre_header.php';
-require_once '../includes/dbh.inc.php';
+
 $uid = $_SESSION["useruid"];
 
 //Requete SQL
 $sqlFavoris = $conn->query("SELECT * FROM favoris WHERE idCreateur = '$uid'");
+    //Affichage des données
+?>
+<div class="titre-offres">
+    <h2> Favoris </h2>
+</div>
 
-//Affichage des données
-while ($donneesFavoris = $sqlFavoris->fetch_assoc()){
-    $videoId = $donneesFavoris["idVideo"];
-    $sqlVideo = $conn->query("SELECT * FROM video WHERE id='$videoId'");
-    ?>
-    <div class="favoris-container">
-        <div class="favoris">
-            <?php
+<br>
+<br>
+
+<div class="favoris">
+
+<?php
+if($_SESSION['plan']==0){
+?>
+    <div class="texte-favoris" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h3> Cette fonctionnalitée est reservée aux membres premiums </h3>
+        <h3><a href="../espace-membre/espace_membre_abonnement.php" style="font-size: 1.3em;"> Devenir premium! </a></h3>
+    </div>
+    
+<?php
+
+}else{
+    if(mysqli_num_rows($sqlFavoris)>0){
+        while ($donneesFavoris = $sqlFavoris->fetch_assoc()){
+            $videoId = $donneesFavoris["idVideo"];
+            $sqlVideo = $conn->query("SELECT * FROM video WHERE id='$videoId'");
             while ($donnees = $sqlVideo->fetch_assoc()){
             ?>
-            <div class="favoris-card">   
-                    <!-- Button pour effacer des favoris -->
-                    <form action="../espace-membre/favoris/effacerFavorisProcess.php" method="POST">
-                        <button type="submit" name="erase" value="<?php echo $donneesFavoris["id"]; ?>"> - </button>
-                    </form>     
-                    
+            <div class="favoris-card" id="favoris-container<?php echo $donnees["id"]; ?>">               
                     <!-- Videos -->
-                    <video width="100%" height="auto" controlsList="nodownload" oncontextmenu="return false;" controls>
+                    <video width="100%" height="auto" preload="auto" controlsList="nodownload" controls oncontextmenu="return false;">
                     <source src="../Vidéos/<?php echo $donnees["nomVideo"]; ?>" type="video/mp4"></video>
-                </div>
+                    
+                    <div class="btnFavorite-container">
+                        <input type="hidden" id="favoris<?php echo $donnees["id"]; ?>" value="<?php echo $donnees["id"]; ?>">
+                    <!-- Ajout du bouton favoris -->
+                        <button style="width: 25px; height: 25px;" class="btnDeleteFavorites" data-id="<?php echo $donnees["id"]; ?>" name="btnFavorites">  <i class="fa fa-trash" ariria-hidden="true"></i> </button>
+                    </div>
+                    <div class="tags-video">
+                        <div class="tag-famille">
+                            <?php echo $donnees["TagFamille"]; ?> 
+                        </div>
+                        <div class="tag-video">
+                            <?php echo $donnees["TagVideo"]; ?> 
+                        </div>
+                    </div>
+            </div>
             <?php
             }
-            ?>
-        </div>
-    </div>  
-<?php
+        }
+    }else{
+        ?>
+        <div class="texte-favoris">
+        <h3> Vous n'avez aucune vidéo enregistré dans vos favoris </h3>
+        <h3><a href="../espace-membre/espace_membre.php"> Trouver vos vidéos ici </a></h3>
+    </div>
+    <?php
+        
+    }
 }
+?>
+</div>
+
+<?php
+require('espace_membre_footer.php');
 ?>
