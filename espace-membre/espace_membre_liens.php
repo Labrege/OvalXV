@@ -1,9 +1,10 @@
 <?php
 session_start();
 $_SESSION['includes'] = "/includes/dbh.inc.php";
-$_SESSION['vendor'] = "/includes/dbh.inc.php";
+$_SESSION['vendor'] = "/vendor/autoload.php";
 
 require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
+
 ?>
 <!DOCTYPE html>
 <html>
