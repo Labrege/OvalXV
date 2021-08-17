@@ -37,7 +37,7 @@ require_once '../espace-membre/espace_membre_header.php';
                 <?php
                 }elseif ($_SESSION["plan"] == 0){
                 ?>
-                    <form action="../espace-membre/stripeHandles/paymentProcess.php?pid=1" method="POST">
+                    <form action="<?php echo $_SESSION['abonnementPrefix'];?>/espace-membre/stripeHandles/paymentProcess.php?pid=1" method="POST">
                         <button class='bouton_valider'> Prendre l'abonnement <h1 style="display: none;"><script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_51HqQHPFgXh2KdvEK9BkU6l4OBittEpDQkWyOqnul0tP8OUAY8dAIyHJYGfKBMjU6x3l8UwwJvzdD2BLvtnRb7R4m00SHqgdKiT" data-amount="999" data-name="Abonnement mensuel" data-description="9,99€/mois sans engagement" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="eur" data-name="auto">
                         </script></h1> </button>
                         
@@ -84,7 +84,7 @@ require_once '../espace-membre/espace_membre_header.php';
                 <?php
                 }else{
                 ?>
-                    <form action="/espace-membre/stripeHandles/paymentProcess.php?pid=2" method="POST" style="text-align: center;">
+                    <form action="<?php echo $_SESSION['abonnementPrefix'];?>/espace-membre/stripeHandles/paymentProcess.php?pid=2" method="POST" style="text-align: center;">
                         <button class='bouton_valider'> Prendre l'abonnement <h1 style="display: none;"><script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_51HqQHPFgXh2KdvEK9BkU6l4OBittEpDQkWyOqnul0tP8OUAY8dAIyHJYGfKBMjU6x3l8UwwJvzdD2BLvtnRb7R4m00SHqgdKiT" data-amount="5999" data-name="Abonnement Annuel" data-description="4,99€/mois pendant un an" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="eur" >
                         </script></h1> </button>
                     </form>
