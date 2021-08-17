@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
-
+require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
  
 if(isset($_POST['videoid'])){
     $idVideo = $_POST['videoid'];

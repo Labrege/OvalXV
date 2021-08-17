@@ -1,7 +1,8 @@
 
 <?php
 require_once '../espace-membre/espace_membre_header.php';
-require_once '../includes/dbh.inc.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
+
 ?>
 <div class="container-paiements">
     <div class="titre-offres">

@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/includes/dbh.inc.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;

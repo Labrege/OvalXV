@@ -1,8 +1,6 @@
 <?php
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
-
-
+require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
 
 if (isset($_POST["submit"])){
     if ($_POST["pwd"] == $_POST["pwdrepeat"]){
