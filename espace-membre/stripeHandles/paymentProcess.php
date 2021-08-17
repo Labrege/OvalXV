@@ -22,7 +22,7 @@ if(!isset($_GET["pid"]) || !in_array($_GET["pid"], $products["pids"]) || !isset(
   exit();
 }
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/OvaleXV/vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['vendor']);
 
 //Clés STRIPE
 $stripeKeys = [
