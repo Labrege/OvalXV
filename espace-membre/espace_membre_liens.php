@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
-echo $_SERVER['DOCUMENT_ROOT'];
+echo $_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
