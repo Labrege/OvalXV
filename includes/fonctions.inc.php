@@ -132,7 +132,7 @@ function createUser($conn, $name, $surname, $email, $username, $pwd){
             $body = "Bonjour! <br> Veuillez cliquer sur le lien ci-dessous pour valider votre compte :
             <br><br>
             
-            <a href='http://www.verification.php?code=$ecodeverif&username=$username'> Cliquer ici pour vérifier votre compte ! </a><br><br>
+            <a href='http://www.ovalxv.com/verification.php?code=$ecodeverif&username=$username'> Cliquer ici pour vérifier votre compte ! </a><br><br>
     
             A bientôt sur la plateforme OvalXV!
             ";

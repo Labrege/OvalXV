@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/dbh.inc.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '../includes/dbh.inc.php');
 ?>
 <!DOCTYPE html>
 <html>

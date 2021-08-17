@@ -14,10 +14,10 @@ if(isset($_GET['code']) || isset($_GET['username'])){
         $checkCode = password_verify($donnees["codeVerif"],$verifcode);
         if($checkCode === true){
             $dbUpdate = $conn->query("UPDATE users SET compteVerif = 1 WHERE userUid = '$username'");
-            header("Location: login.php?error=accountverified");
+            header("Location: ../login.php?error=accountverified");
         }
         elseif($checkCode === false){
-            header("Location: login.php?error=accountnotverified");
+            header("Location: ../login.php?error=accountnotverified");
         }
     }
 }
