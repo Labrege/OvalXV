@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
 
 // Import PHPMailer classes into the global namespace
@@ -23,6 +22,7 @@ if(!isset($_GET["pid"]) || !in_array($_GET["pid"], $products["pids"]) || !isset(
 }
 
 require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['vendor']);
+
 
 //Clés STRIPE
 $stripeKeys = [

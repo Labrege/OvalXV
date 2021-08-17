@@ -5,6 +5,8 @@ $_SESSION['vendor'] = "/vendor/autoload.php";
 
 require_once($_SERVER['DOCUMENT_ROOT'] . $_SESSION['includes']);
 
+echo $_SERVER['DOCUMENT_ROOT'] . $_SESSION['vendor'];
+
 ?>
 <!DOCTYPE html>
 <html>
